@@ -36,70 +36,70 @@ export const CONFIG = {
     }
   ],
   skills: [
+    "High-Retention Hooks",
+    "Talking Head Mastery",
     "Kinetic Typography",
-    "Hook-based Captioning",
-    "B-Roll Layering",
-    "High-End Audio Editing",
-    "Seamless Transitions"
+    "Strategic B-Roll Layering",
+    "Sound Design & SFX"
   ],
   styleImage: "https://lh3.googleusercontent.com/d/18UezeEPZmcJXPKWgmrKU6AegtZTiU1fE",
-  styleVideoUrl: "https://drive.google.com/file/d/18UezeEPZmcJXPKWgmrKU6AegtZTiU1fE/view?usp=drive_link",
+  styleVideoUrl: "https://www.youtube.com/embed/_IjuBzBx6lo",
   transformation: {
     title: "Raw To Viral",
     description: "This is what retention engineering looks like.",
     rawImage: "https://lh3.googleusercontent.com/d/1vY5mT4GoRL2FXBX5o6SF8BENKbHMKhk1",
-    rawVideoUrl: "https://drive.google.com/file/d/1vY5mT4GoRL2FXBX5o6SF8BENKbHMKhk1/view?usp=drive_link",
+    rawVideoUrl: "https://www.youtube.com/embed/dE-M5emaCFA",
     editedImage: "https://lh3.googleusercontent.com/d/1qAzGYgJ5BA7fZa68rQo6YQygljx1Qizc",
-    editedVideoUrl: "https://drive.google.com/file/d/1qAzGYgJ5BA7fZa68rQo6YQygljx1Qizc/view?usp=drive_link",
+    editedVideoUrl: "https://www.youtube.com/embed/8vwb7EjYWd0",
   },
   portfolio: [
     { 
       id: 1, 
-      title: "Storytelling", 
-      tag: "Viral Reel", 
+      title: "Business Niche", 
+      tag: "Retention Hook", 
       proof: "61% Avg. Retention",
       thumbnail: "https://lh3.googleusercontent.com/d/1YjuAWu7TfjxvPHIDOa0vKx0XtZdVXq-w",
-      videoUrl: "https://drive.google.com/file/d/1YjuAWu7TfjxvPHIDOa0vKx0XtZdVXq-w/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/2xRpZUjHNdg" 
     },
     { 
       id: 2, 
-      title: "Fast Paced", 
-      tag: "Tech Shorts", 
+      title: "Personal Brand", 
+      tag: "Talking Head", 
       proof: "Top 5% Engagement",
       thumbnail: "https://lh3.googleusercontent.com/d/1MxMegAXNvzn9B6LOa2h5tqGBuMkCGn6u",
-      videoUrl: "https://drive.google.com/file/d/1MxMegAXNvzn9B6LOa2h5tqGBuMkCGn6u/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/--cH2ZhJB4s" 
     },
     { 
       id: 3, 
-      title: "High Retention", 
-      tag: "Finance Content", 
+      title: "Education Content", 
+      tag: "Animated Caps", 
       proof: "2.4x Watch Time",
       thumbnail: "https://lh3.googleusercontent.com/d/1ZS_VUyGmVfruPkH9oqxLz0nua3p4ELcC",
-      videoUrl: "https://drive.google.com/file/d/1ZS_VUyGmVfruPkH9oqxLz0nua3p4ELcC/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/ctEPoqPpI6A" 
     },
     { 
       id: 4, 
       title: "Dynamic Flow", 
-      tag: "Gaming Clips", 
+      tag: "Engagement Loop", 
       proof: "Used in 20+ Ads",
       thumbnail: "https://lh3.googleusercontent.com/d/1Fv9yUUE-MgW6vG7dmmV7FPkPqPC3iR37",
-      videoUrl: "https://drive.google.com/file/d/1Fv9yUUE-MgW6vG7dmmV7FPkPqPC3iR37/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/1tjtIJLGikM" 
     },
     { 
       id: 5, 
-      title: "Aggressive", 
-      tag: "Gym Motivation", 
+      title: "Health Niche", 
+      tag: "Talking Head Mastery", 
       proof: "12% Share Rate",
       thumbnail: "https://lh3.googleusercontent.com/d/1U61S64rYD0UJiCEwl_KScRWl73ZJoiyK",
-      videoUrl: "https://drive.google.com/file/d/1U61S64rYD0UJiCEwl_KScRWl73ZJoiyK/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/eEmsGorK_jM" 
     },
     { 
       id: 6, 
       title: "Clean Visuals", 
-      tag: "Lifestyle Blog", 
+      tag: "Premium Flow", 
       proof: "Premium Aesthetic",
       thumbnail: "https://lh3.googleusercontent.com/d/1i8Vbq80KMjOqIimouKvBtGZqT_g8Ax0u",
-      videoUrl: "https://drive.google.com/file/d/1i8Vbq80KMjOqIimouKvBtGZqT_g8Ax0u/view?usp=drive_link" 
+      videoUrl: "https://www.youtube.com/embed/NmCjEEz7xaI" 
     }
   ],
   socials: {
