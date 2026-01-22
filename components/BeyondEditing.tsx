@@ -3,16 +3,16 @@ import { CONFIG } from '../data';
 
 const BeyondEditing: React.FC = () => {
   return (
-    <section className="py-24 px-6 bg-[#0E0E0E] relative overflow-hidden border-t border-[#4A0404]/20">
+    <section className="py-12 md:py-24 px-6 bg-[#0E0E0E] relative overflow-hidden border-t border-[#4A0404]/20">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 reveal opacity-0 translate-y-10 transition-all duration-700">
+        <div className="mb-12 md:mb-16 reveal opacity-0 translate-y-10 transition-all duration-700">
           <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-4">
             Beyond <span className="text-[#FF2C2C]">Editing</span>
           </h2>
-          <p className="text-[#EDEDED]/40 text-lg uppercase tracking-widest font-black">Multiplying Your <span className="text-[#FF5F1F]">Retention</span> Potential</p>
+          <p className="text-[#EDEDED]/40 text-base md:text-lg uppercase tracking-widest font-black">Multiplying Your <span className="text-[#FF5F1F]">Retention</span> Potential</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {CONFIG.beyondEditing.map((service, index) => (
             <div 
               key={index} 
@@ -32,8 +32,8 @@ const BeyondEditing: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-16 p-8 border border-[#FF5F1F]/30 bg-[#4A0404]/10 rounded-3xl reveal opacity-0 translate-y-10 transition-all duration-700">
-          <p className="text-[#EDEDED] font-medium text-lg">
+        <div className="mt-12 md:mt-16 p-6 md:p-8 border border-[#FF5F1F]/30 bg-[#4A0404]/10 rounded-3xl reveal opacity-0 translate-y-10 transition-all duration-700">
+          <p className="text-[#EDEDED] font-medium text-base md:text-lg">
             <span className="text-[#FF5F1F] font-black uppercase mr-2">The Result:</span> These are optional accelerators. Editing is the core weapon, but these ensure your content isn't just a video—it's a conversion engine.
           </p>
         </div>

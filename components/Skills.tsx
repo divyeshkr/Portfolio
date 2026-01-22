@@ -27,20 +27,20 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="style" className="py-24 px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30">
+    <section id="style" className="py-12 md:py-24 px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16">
           <div className="w-full lg:w-3/5">
-            <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-8 reveal opacity-0 translate-y-10 transition-all duration-700">
+            <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-6 md:mb-8 reveal opacity-0 translate-y-10 transition-all duration-700">
               The <span className="text-[#FF2C2C]">Signature</span> <span className="text-[#FF5F1F]">Style</span>
             </h2>
-            <p className="text-[#EDEDED]/60 text-lg md:text-xl leading-relaxed mb-10 reveal opacity-0 translate-y-10 transition-all duration-700 delay-100 font-medium">
+            <p className="text-[#EDEDED]/60 text-base md:text-xl leading-relaxed mb-8 md:mb-10 reveal opacity-0 translate-y-10 transition-all duration-700 delay-100 font-medium">
               I specialize in <span className="text-white font-bold">Talking Head Mastery</span>. I turn experts into influencers by engineering aggressive hooks, kinetic typography, and high-energy B-roll that maintains 60%+ retention across the board.
             </p>
             
-            <div className="grid grid-cols-2 gap-4 md:gap-6 reveal opacity-0 translate-y-10 transition-all duration-700 delay-200">
+            <div className="grid grid-cols-2 gap-3 md:gap-6 reveal opacity-0 translate-y-10 transition-all duration-700 delay-200">
               {CONFIG.skills.map((skill, index) => (
-                <div key={index} className="flex flex-col sm:flex-row items-center sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 p-4 md:p-5 bg-[#1A1A1A] border border-[#4A0404]/20 hover:border-[#FF5F1F]/50 transition-all duration-300 rounded-xl group hover:-translate-y-1 shadow-2xl">
+                <div key={index} className="flex flex-col sm:flex-row items-center sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 p-3 md:p-5 bg-[#1A1A1A] border border-[#4A0404]/20 hover:border-[#FF5F1F]/50 transition-all duration-300 rounded-xl group hover:-translate-y-1 shadow-2xl">
                   <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#FF2C2C]/10 flex items-center justify-center border border-[#FF2C2C]/30 group-hover:bg-gradient-to-br group-hover:from-[#FF2C2C] group-hover:to-[#FF5F1F] group-hover:shadow-[0_0_15px_rgba(255,44,44,0.5)] transition-all">
                     <svg className="w-4 h-4 md:w-6 md:h-6 text-[#FF5F1F] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />

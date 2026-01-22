@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="bg-[#0E0E0E] pt-32 pb-16 px-6 border-t border-white/5 relative">
+    <footer id="contact" className="bg-[#0E0E0E] pt-24 pb-12 px-6 border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 reveal opacity-0 translate-y-10 transition-all duration-700">
           Ready to <span className="text-[#FF2C2C] italic">Go Viral?</span>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
 
         <div className="mb-16">
           <a 
-            href="#booking" 
+            href="#demo-request" 
             className="inline-block px-12 py-6 bg-[#FF2C2C] text-white font-black text-2xl uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(255,44,44,0.4)] hover:bg-red-700 transition-all transform hover:-translate-y-2 active:scale-95 animate-cta-pulse"
           >
             Claim Free Demo Edit

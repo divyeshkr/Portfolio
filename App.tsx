@@ -41,7 +41,7 @@ const App: React.FC = () => {
       {/* Mobile Sticky CTA with New Palette */}
       <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] w-full px-6">
         <a 
-            href="#booking"
+            href="#demo-request"
             className="flex items-center justify-center bg-gradient-to-r from-[#FF2C2C] to-[#FF5F1F] text-white font-black uppercase tracking-[0.2em] text-xs py-4 rounded-full shadow-[0_10px_30px_rgba(255,44,44,0.4)] border-2 border-white/10"
         >
             Book Free Demo Edit
