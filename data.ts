@@ -5,7 +5,6 @@ export const CONFIG = {
     role: "Short-Form Video Specialist",
     tagline: "Wondershare Filmora Specialist | Turning 120 Seconds into Viral Gold",
     photo: "https://lh3.googleusercontent.com/d/1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_",
-    heroImage: "https://lh3.googleusercontent.com/d/1c-mk4AUuQcucKYKSss3DCrc1RpKsPZgy",
     stats: "10+ Global Clients Served",
     demoOffer: "No idea? No problem. I’ll edit 1 short video for you absolutely free. Upload it, see the results, then we talk.",
     metrics: [
