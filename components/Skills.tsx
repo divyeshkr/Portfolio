@@ -1,24 +1,31 @@
-
 import React, { useState } from 'react';
 import { CONFIG } from '../data';
 
 const Skills: React.FC = () => {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{url: string, thumbnail: string} | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const getEmbedUrl = (url: string) => {
     if (url.includes('drive.google.com')) {
-      return url.replace(/\/view.*$/, '/preview');
+      return url.replace(/\/view.*$/, '/preview') + (url.includes('?') ? '&' : '?') + 'autoplay=1';
     }
     return url;
   };
 
   const openVideo = () => {
     if (CONFIG.styleVideoUrl && CONFIG.styleVideoUrl !== '#') {
-      setSelectedVideo(getEmbedUrl(CONFIG.styleVideoUrl));
+      setIsPlaying(false);
+      setSelectedVideo({ 
+        url: getEmbedUrl(CONFIG.styleVideoUrl),
+        thumbnail: CONFIG.styleImage
+      });
     }
   };
 
-  const closeModal = () => setSelectedVideo(null);
+  const closeModal = () => {
+    setSelectedVideo(null);
+    setIsPlaying(false);
+  };
 
   return (
     <section id="style" className="py-24 px-6 bg-[#050505] overflow-hidden">
@@ -47,23 +54,18 @@ const Skills: React.FC = () => {
           </div>
           
           <div className="w-full lg:w-2/5 flex justify-center relative reveal opacity-0 translate-y-10 transition-all duration-700 delay-400">
-            {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#FF0000]/10 blur-[80px] rounded-full" />
             
             <div 
               onClick={openVideo}
-              className="relative w-full max-w-[320px] aspect-[9/16] bg-black rounded-[2.5rem] border-[6px] border-[#1a1a1a] shadow-2xl overflow-hidden group cursor-pointer hover:border-[#FF0000]/30 transition-all"
+              className="relative w-full max-w-[300px] aspect-[9/16] bg-black rounded-[2.5rem] border-[6px] border-[#1a1a1a] shadow-2xl overflow-hidden group cursor-pointer hover:border-[#FF0000]/30 transition-all"
             >
-              {/* Camera Notch/Phone UI Elements */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#1a1a1a] rounded-b-2xl z-20" />
               
               <img 
                 src={CONFIG.styleImage} 
-                alt="Vertical Editing Showcase" 
+                alt="Style Showcase" 
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://picsum.photos/seed/reel/1080/1920";
-                }}
               />
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-center justify-center">
@@ -73,55 +75,57 @@ const Skills: React.FC = () => {
                   </svg>
                 </div>
               </div>
-
-              {/* Floatings UI Tags */}
-              <div className="absolute bottom-10 left-6 right-6">
-                <div className="bg-black/40 backdrop-blur-md border border-white/10 p-3 rounded-lg flex flex-col space-y-1">
-                  <div className="h-1.5 w-full bg-[#FF0000] rounded-full overflow-hidden">
-                    <div className="h-full bg-white w-3/4 animate-pulse"></div>
-                  </div>
-                  <span className="text-[10px] font-black uppercase text-white tracking-widest text-center">Engagement Spike</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Accent Floating Badge */}
-            <div className="absolute -top-6 -right-4 bg-black p-4 border border-[#FF0000] rounded-xl hidden lg:block animate-bounce shadow-[0_0_20px_rgba(255,0,0,0.3)] z-30">
-              <p className="text-[#FF0000] font-black text-xs uppercase tracking-tighter">9:16 MASTERED</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Style Video Modal */}
       {selectedVideo && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-12 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <button 
-            onClick={closeModal}
-            className="absolute top-8 right-8 text-white hover:text-[#FF0000] transition-colors z-[110]"
-          >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="w-full max-w-[min(90vw,calc(85vh*9/16))] flex justify-end mb-4">
+            <button 
+              onClick={closeModal}
+              className="text-white hover:text-[#FF0000] transition-colors p-2"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
           <div 
-            className="relative w-full max-w-lg aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF0000] shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in-95 duration-300"
+            className="relative w-full max-w-[min(90vw,calc(85vh*9/16))] aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF0000] shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe 
-              src={selectedVideo}
-              className="w-full h-full"
-              allow="autoplay"
-              allowFullScreen
-            ></iframe>
-          </div>
-          
-          <div className="absolute bottom-10 text-center pointer-events-none">
-            <p className="text-[#FF0000] font-black uppercase tracking-[0.5em] text-xs animate-pulse">Signature Style Showcase</p>
+            {!isPlaying ? (
+              <div 
+                className="w-full h-full relative group cursor-pointer"
+                onClick={() => setIsPlaying(true)}
+              >
+                <img 
+                  src={selectedVideo.thumbnail} 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                  alt="Video Thumbnail"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full bg-[#FF0000] flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform">
+                    <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <iframe 
+                src={selectedVideo.url}
+                className="w-full h-full"
+                allow="autoplay"
+                allowFullScreen
+              ></iframe>
+            )}
           </div>
         </div>
       )}

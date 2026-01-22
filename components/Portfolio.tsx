@@ -1,25 +1,29 @@
-
 import React, { useState } from 'react';
 import { CONFIG } from '../data';
 
 const Portfolio: React.FC = () => {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{url: string, title: string, thumbnail: string} | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  // Helper to convert Google Drive "view" links to "preview" for embedding
   const getEmbedUrl = (url: string) => {
     if (url.includes('drive.google.com')) {
-      return url.replace(/\/view.*$/, '/preview');
+      // Ensure it's the preview link and add autoplay
+      return url.replace(/\/view.*$/, '/preview') + (url.includes('?') ? '&' : '?') + 'autoplay=1';
     }
     return url;
   };
 
-  const openModal = (e: React.MouseEvent, url: string) => {
+  const openModal = (e: React.MouseEvent, url: string, title: string, thumbnail: string) => {
     if (url === '#' || !url) return;
     e.preventDefault();
-    setSelectedVideo(getEmbedUrl(url));
+    setIsPlaying(false);
+    setSelectedVideo({ url: getEmbedUrl(url), title, thumbnail });
   };
 
-  const closeModal = () => setSelectedVideo(null);
+  const closeModal = () => {
+    setSelectedVideo(null);
+    setIsPlaying(false);
+  };
 
   return (
     <section id="work" className="py-24 px-6 bg-black relative">
@@ -39,7 +43,7 @@ const Portfolio: React.FC = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div 
-                onClick={(e) => openModal(e, item.videoUrl)}
+                onClick={(e) => openModal(e, item.videoUrl, item.title, item.thumbnail)}
                 className="group relative block aspect-[9/16] w-full bg-[#111] border border-white/5 rounded-2xl overflow-hidden hover:border-[#FF0000]/50 transition-all duration-500 cursor-pointer"
               >
                 <img 
@@ -48,7 +52,6 @@ const Portfolio: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                 />
                 
-                {/* Overlay Details */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 p-8 flex flex-col justify-end">
                   <span className="text-[#FF0000] text-xs font-black uppercase tracking-[0.3em] mb-2">{item.tag}</span>
                   <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter leading-tight">
@@ -65,7 +68,6 @@ const Portfolio: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Play Button Indicator */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                     <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
@@ -79,34 +81,56 @@ const Portfolio: React.FC = () => {
         </div>
       </div>
 
-      {/* Video Modal Overlay */}
       {selectedVideo && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-12 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <button 
-            onClick={closeModal}
-            className="absolute top-8 right-8 text-white hover:text-[#FF0000] transition-colors z-[110]"
-          >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="w-full max-w-[min(90vw,calc(85vh*9/16))] flex justify-between items-center mb-4">
+            <h4 className="text-[#FF0000] font-black uppercase tracking-widest text-sm truncate mr-4">{selectedVideo.title}</h4>
+            <button 
+              onClick={closeModal}
+              className="text-white hover:text-[#FF0000] transition-colors p-2"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
           <div 
-            className="relative w-full max-w-lg aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF0000] shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in-95 duration-300"
+            className="relative w-full max-w-[min(90vw,calc(85vh*9/16))] aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF0000] shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe 
-              src={selectedVideo}
-              className="w-full h-full"
-              allow="autoplay"
-              allowFullScreen
-            ></iframe>
+            {!isPlaying ? (
+              <div 
+                className="w-full h-full relative group cursor-pointer"
+                onClick={() => setIsPlaying(true)}
+              >
+                <img 
+                  src={selectedVideo.thumbnail} 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                  alt="Video Thumbnail"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full bg-[#FF0000] flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.6)] group-hover:scale-110 transition-transform">
+                    <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <iframe 
+                src={selectedVideo.url}
+                className="w-full h-full"
+                allow="autoplay"
+                allowFullScreen
+              ></iframe>
+            )}
           </div>
           
-          <div className="absolute bottom-10 text-center pointer-events-none">
+          <div className="mt-6 text-center pointer-events-none">
             <p className="text-[#FF0000] font-black uppercase tracking-[0.5em] text-xs animate-pulse">High Retention Content</p>
           </div>
         </div>

@@ -4,11 +4,14 @@ export const CONFIG = {
     email: "divyesh.yts@gmail.com",
     role: "Short-Form Video Specialist",
     tagline: "Wondershare Filmora Specialist | Turning 0-120 Seconds into Viral Gold",
+    photo: "https://drive.google.com/uc?export=view&id=1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_",
+    stats: "10+ Global Clients Served"
   },
   skills: [
     "Kinetic Typography",
     "Hook-based Captioning",
     "B-Roll Layering",
+    "High-End Audio Editing",
     "Seamless Transitions"
   ],
   styleImage: "https://drive.google.com/uc?export=view&id=18UezeEPZmcJXPKWgmrKU6AegtZTiU1fE",
@@ -16,10 +19,8 @@ export const CONFIG = {
   transformation: {
     title: "Raw To Viral",
     description: "Witness the transformation",
-    // Raw Footage links
     rawImage: "https://drive.google.com/uc?export=view&id=1vY5mT4GoRL2FXBX5o6SF8BENKbHMKhk1",
     rawVideoUrl: "https://drive.google.com/file/d/1vY5mT4GoRL2FXBX5o6SF8BENKbHMKhk1/view?usp=drive_link",
-    // Viral Edit links
     editedImage: "https://drive.google.com/uc?export=view&id=1qAzGYgJ5BA7fZa68rQo6YQygljx1Qizc",
     editedVideoUrl: "https://drive.google.com/file/d/1qAzGYgJ5BA7fZa68rQo6YQygljx1Qizc/view?usp=drive_link",
   },
@@ -68,8 +69,7 @@ export const CONFIG = {
     }
   ],
   socials: {
-    instagram: "#",
-    youtube: "#",
-    twitter: "#"
+    instagram: "https://instagram.com/sasta.superman",
+    instaHandle: "@sasta.superman"
   }
 };

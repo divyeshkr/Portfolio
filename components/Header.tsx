@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Header: React.FC = () => {
@@ -10,11 +9,11 @@ const Header: React.FC = () => {
       <div className="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-400">
         <a href="#work" className="hover:text-[#FF0000] transition-colors">The Work</a>
         <a href="#style" className="hover:text-[#FF0000] transition-colors">My Style</a>
-        <a href="mailto:divyesh.yts@gmail.com" className="hover:text-[#FF0000] transition-colors">Contact</a>
+        <a href="#contact" className="hover:text-[#FF0000] transition-colors">Contact</a>
       </div>
       <a 
         href="mailto:divyesh.yts@gmail.com"
-        className="bg-[#FF0000] text-white px-5 py-2 text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all active:scale-95"
+        className="bg-[#FF0000] text-white px-5 py-2 text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all active:scale-95 neon-border"
       >
         Hire Me
       </a>
