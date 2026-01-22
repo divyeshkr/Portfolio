@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONFIG } from '../data';
 
 const Header: React.FC = () => {
   return (
@@ -13,10 +14,10 @@ const Header: React.FC = () => {
         <a href="#contact" className="hover:text-[#FF5F1F] transition-colors">Contact</a>
       </div>
       <a 
-        href="#demo-request"
+        href={`mailto:${CONFIG.profile.email}`}
         className="bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] text-white px-6 py-2.5 text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,44,44,0.3)]"
       >
-        Hire Me
+        Mail Me
       </a>
     </nav>
   );
