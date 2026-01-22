@@ -2,10 +2,11 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Divyesh Creates | Short-Form Video Specialist</title>
     <!-- Custom Favicon: User Profile Photo -->
     <link rel="icon" href="https://lh3.googleusercontent.com/d/1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +40,11 @@
         background-color: var(--charcoal);
         color: var(--soft-white);
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Remove grey tap highlight on iOS */
+      * {
+        -webkit-tap-highlight-color: transparent;
       }
       .neon-glow {
         text-shadow: 0 0 10px rgba(255, 44, 44, 0.7), 0 0 20px rgba(255, 95, 31, 0.4);

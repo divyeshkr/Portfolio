@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="bg-[#0E0E0E] pt-24 pb-12 px-6 border-t border-white/5 relative">
+    <footer id="contact" className="bg-[#0E0E0E] pt-24 pb-32 md:pb-12 px-6 border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 reveal opacity-0 translate-y-10 transition-all duration-700">
           Ready to <span className="text-[#FF2C2C] italic">Go Viral?</span>
