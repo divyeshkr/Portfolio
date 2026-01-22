@@ -42,14 +42,14 @@ export const CONFIG = {
     "Strategic B-Roll Layering",
     "Sound Design & SFX"
   ],
-  styleImage: "https://img.youtube.com/vi/_IjuBzBx6lo/hqdefault.jpg",
+  styleImage: "https://img.youtube.com/vi/_IjuBzBx6lo/maxresdefault.jpg",
   styleVideoUrl: "https://www.youtube.com/embed/_IjuBzBx6lo",
   transformation: {
     title: "Raw To Viral",
     description: "This is what retention engineering looks like.",
-    rawImage: "https://img.youtube.com/vi/dE-M5emaCFA/hqdefault.jpg",
+    rawImage: "https://img.youtube.com/vi/dE-M5emaCFA/maxresdefault.jpg",
     rawVideoUrl: "https://www.youtube.com/embed/dE-M5emaCFA",
-    editedImage: "https://img.youtube.com/vi/8vwb7EjYWd0/hqdefault.jpg",
+    editedImage: "https://img.youtube.com/vi/8vwb7EjYWd0/maxresdefault.jpg",
     editedVideoUrl: "https://www.youtube.com/embed/8vwb7EjYWd0",
   },
   portfolio: [
@@ -58,7 +58,7 @@ export const CONFIG = {
       title: "Business Niche", 
       tag: "Retention Hook", 
       proof: "61% Avg. Retention",
-      thumbnail: "https://img.youtube.com/vi/2xRpZUjHNdg/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/2xRpZUjHNdg/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/2xRpZUjHNdg" 
     },
     { 
@@ -66,7 +66,7 @@ export const CONFIG = {
       title: "Personal Brand", 
       tag: "Talking Head", 
       proof: "Top 5% Engagement",
-      thumbnail: "https://img.youtube.com/vi/--cH2ZhJB4s/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/--cH2ZhJB4s/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/--cH2ZhJB4s" 
     },
     { 
@@ -74,7 +74,7 @@ export const CONFIG = {
       title: "Education Content", 
       tag: "Animated Caps", 
       proof: "2.4x Watch Time",
-      thumbnail: "https://img.youtube.com/vi/ctEPoqPpI6A/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/ctEPoqPpI6A/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/ctEPoqPpI6A" 
     },
     { 
@@ -82,7 +82,7 @@ export const CONFIG = {
       title: "Dynamic Flow", 
       tag: "Engagement Loop", 
       proof: "Used in 20+ Ads",
-      thumbnail: "https://img.youtube.com/vi/1tjtIJLGikM/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/1tjtIJLGikM/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/1tjtIJLGikM" 
     },
     { 
@@ -90,7 +90,7 @@ export const CONFIG = {
       title: "Health Niche", 
       tag: "Talking Head Mastery", 
       proof: "12% Share Rate",
-      thumbnail: "https://img.youtube.com/vi/eEmsGorK_jM/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/eEmsGorK_jM/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/eEmsGorK_jM" 
     },
     { 
@@ -98,7 +98,7 @@ export const CONFIG = {
       title: "Clean Visuals", 
       tag: "Premium Flow", 
       proof: "Premium Aesthetic",
-      thumbnail: "https://img.youtube.com/vi/NmCjEEz7xaI/hqdefault.jpg",
+      thumbnail: "https://img.youtube.com/vi/NmCjEEz7xaI/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/NmCjEEz7xaI" 
     }
   ],

@@ -103,7 +103,7 @@ const Transformation: React.FC = () => {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <div className="w-full max-w-[min(90vw,calc(70svh*9/16))] flex justify-between items-center mb-4">
+          <div className="w-full max-w-[min(90vw,calc(85svh*9/16))] flex justify-between items-center mb-4">
             <h4 className="text-[#FF2C2C] font-black uppercase tracking-widest text-[10px] md:text-xs">{selectedVideo.title}</h4>
             <button 
               onClick={closeModal}
@@ -116,7 +116,7 @@ const Transformation: React.FC = () => {
           </div>
 
           <div 
-            className="relative w-[min(90vw,calc(70svh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_50px_rgba(255,44,44,0.3)] animate-in zoom-in-95 duration-300 group/player"
+            className="relative w-[min(90vw,calc(85svh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_50px_rgba(255,44,44,0.3)] animate-in zoom-in-95 duration-300 group/player"
             onClick={(e) => e.stopPropagation()}
           >
             {!isPlaying ? (
