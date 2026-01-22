@@ -16,26 +16,26 @@ const BookingForm: React.FC = () => {
             <p className="text-[#EDEDED]/40 font-black uppercase tracking-widest text-[10px] md:text-xs">Zero friction workflow.</p>
           </div>
           
-          {/* Steps - Single Row Layout for Mobile & Desktop */}
-          <div className="flex flex-row items-stretch justify-center gap-1 md:gap-4">
+          {/* Steps - Vertical on Mobile, Horizontal on Desktop */}
+          <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-4 md:gap-4">
             {CONFIG.howItWorks.map((step, idx) => (
               <React.Fragment key={idx}>
-                <div className="flex-1 p-3 md:p-8 bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl flex flex-col items-center text-center group hover:border-[#FF5F1F]/40 transition-all shadow-xl min-w-0">
-                  <div className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-[#FF2C2C]/30 flex items-center justify-center mb-2 md:mb-4 text-[#FF5F1F] font-black group-hover:bg-gradient-to-br group-hover:from-[#FF2C2C] group-hover:to-[#FF5F1F] group-hover:text-white transition-all text-xs md:text-sm shadow-[0_0_10px_rgba(255,44,44,0.2)]">
+                <div className="w-full md:flex-1 p-6 md:p-8 bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl flex flex-col items-center text-center group hover:border-[#FF5F1F]/40 transition-all shadow-xl">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#FF2C2C]/30 flex items-center justify-center mb-3 md:mb-4 text-[#FF5F1F] font-black group-hover:bg-gradient-to-br group-hover:from-[#FF2C2C] group-hover:to-[#FF5F1F] group-hover:text-white transition-all text-sm md:text-sm shadow-[0_0_10px_rgba(255,44,44,0.2)]">
                     {idx + 1}
                   </div>
-                  <h4 className="text-[#EDEDED] font-black uppercase text-[9px] md:text-sm mb-1 md:mb-2 group-hover:text-[#FF5F1F] transition-colors leading-tight">
+                  <h4 className="text-[#EDEDED] font-black uppercase text-sm md:text-sm mb-2 group-hover:text-[#FF5F1F] transition-colors leading-tight">
                     {step.label}
                   </h4>
-                  <p className="text-[#EDEDED]/40 text-[8px] md:text-xs leading-tight md:leading-relaxed break-words w-full">
+                  <p className="text-[#EDEDED]/40 text-xs md:text-xs leading-relaxed w-full">
                     {step.desc}
                   </p>
                 </div>
 
-                {/* Arrow Connector */}
+                {/* Arrow Connector - Rotates on Mobile */}
                 {idx < CONFIG.howItWorks.length - 1 && (
-                  <div className="flex flex-col justify-center items-center px-0.5 md:px-2">
-                     <svg className="w-4 h-4 md:w-8 md:h-8 text-[#FF5F1F]/60 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex flex-col justify-center items-center py-2 md:py-0 px-0 md:px-2">
+                     <svg className="w-6 h-6 md:w-8 md:h-8 text-[#FF5F1F]/60 animate-pulse transform rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7" />
                      </svg>
                   </div>
@@ -49,9 +49,9 @@ const BookingForm: React.FC = () => {
           </div>
         </div>
 
-        {/* The Direct Jump Target */}
-        <div id="demo-request" className="scroll-mt-[25vh] bg-[#1A1A1A] border border-[#4A0404]/40 rounded-[2.5rem] p-8 md:p-16 reveal opacity-0 translate-y-10 transition-all duration-700 shadow-2xl relative overflow-hidden group/form hover:border-[#FF2C2C]/20 transition-all">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5F1F]/10 blur-3xl pointer-events-none"></div>
+        {/* The Direct Jump Target - Added mb-24 on mobile to prevent sticky button overlap */}
+        <div id="demo-request" className="scroll-mt-[25vh] bg-[#1A1A1A] border border-[#4A0404]/40 rounded-[2.5rem] p-8 md:p-16 reveal opacity-0 translate-y-10 transition-all duration-700 shadow-2xl relative overflow-hidden group/form hover:border-[#FF2C2C]/20 transition-all mb-24 md:mb-0">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5F1F]/10 blur-3xl pointer-events-none md:block hidden"></div>
           
           <div className="text-center mb-10 md:mb-12 relative z-10">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#FF2C2C] to-[#FF5F1F] text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-6 shadow-[0_0_20px_rgba(255,44,44,0.3)]">
