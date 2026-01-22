@@ -10,10 +10,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: '#121212',
+              recordingRed: '#FF2C2C',
+              orangeRed: '#FF5F1F',
+              darkCrimson: '#4A0404',
+              softWhite: '#EDEDED',
+              subtleAccent: '#1A1A1A',
+            },
+          },
+        },
+      }
+    </script>
     <style>
       :root {
         --charcoal: #121212;
         --recording-red: #FF2C2C;
+        --orange-red: #FF5F1F;
+        --dark-crimson: #4A0404;
         --soft-white: #EDEDED;
       }
       body {
@@ -23,14 +41,14 @@
         overflow-x: hidden;
       }
       .neon-glow {
-        text-shadow: 0 0 10px rgba(255, 44, 44, 0.7), 0 0 20px rgba(255, 44, 44, 0.4);
+        text-shadow: 0 0 10px rgba(255, 44, 44, 0.7), 0 0 20px rgba(255, 95, 31, 0.4);
       }
       .neon-border {
-        box-shadow: 0 0 15px rgba(255, 44, 44, 0.3);
+        box-shadow: 0 0 15px rgba(255, 44, 44, 0.3), 0 0 5px rgba(255, 95, 31, 0.2);
       }
       @keyframes cta-pulse {
         0% { box-shadow: 0 0 0 0 rgba(255, 44, 44, 0.7); }
-        70% { box-shadow: 0 0 0 15px rgba(255, 44, 44, 0); }
+        70% { box-shadow: 0 0 0 15px rgba(255, 95, 31, 0); }
         100% { box-shadow: 0 0 0 0 rgba(255, 44, 44, 0); }
       }
       .animate-cta-pulse {
@@ -43,11 +61,14 @@
         background: #000000;
       }
       ::-webkit-scrollbar-thumb {
-        background: var(--recording-red);
+        background: linear-gradient(to bottom, var(--recording-red), var(--orange-red));
         border-radius: 4px;
       }
       .kinetic-text {
         letter-spacing: -0.05em;
+      }
+      .depth-shadow {
+        box-shadow: 0 25px 50px -12px rgba(74, 4, 4, 0.5);
       }
     </style>
   <script type="importmap">
