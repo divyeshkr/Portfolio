@@ -31,7 +31,8 @@ const BookingForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-[#1A1A1A] border border-[#4A0404]/40 rounded-[2.5rem] p-8 md:p-16 reveal opacity-0 translate-y-10 transition-all duration-700 shadow-2xl relative overflow-hidden group/form hover:border-[#FF2C2C]/20 transition-all">
+        {/* DIRECT BOOKING START - Added specific ID for direct navigation */}
+        <div id="direct-booking" className="bg-[#1A1A1A] border border-[#4A0404]/40 rounded-[2.5rem] p-8 md:p-16 reveal opacity-0 translate-y-10 transition-all duration-700 shadow-2xl relative overflow-hidden group/form hover:border-[#FF2C2C]/20 transition-all">
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5F1F]/10 blur-3xl pointer-events-none"></div>
           
           <div className="text-center mb-12 relative z-10">

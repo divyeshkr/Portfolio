@@ -6,13 +6,13 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-[100svh] flex flex-col items-center justify-center pt-24 pb-16 px-6 overflow-hidden bg-[#121212]">
-      {/* Subtle Grid Overlay - Base layer across entire section */}
-      <div className="absolute inset-0 opacity-[0.1] pointer-events-none z-0" style={{ backgroundImage: 'linear-gradient(#EDEDED 1px, transparent 1px), linear-gradient(90deg, #EDEDED 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+      {/* Subtle Grid Overlay */}
+      <div className="absolute inset-0 opacity-[0.12] pointer-events-none z-0" style={{ backgroundImage: 'linear-gradient(#EDEDED 1px, transparent 1px), linear-gradient(90deg, #EDEDED 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       
-      {/* Background Glows for depth */}
+      {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FF2C2C]/5 blur-[160px] rounded-full pointer-events-none z-0" />
       
-      {/* THE BLENDED HERO IMAGE - Covering the grid area with face shifted to the left area */}
+      {/* THE BLENDED HERO IMAGE - Restored balanced alignment with slight left-center anchor for mobile */}
       <div className="absolute inset-0 z-10 pointer-events-none select-none overflow-hidden">
         <div 
           className="relative w-full h-full hero-mask-container"
@@ -21,11 +21,10 @@ const Hero: React.FC = () => {
             WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
           }}
         >
-          {/* Dynamic Masking: On mobile, center-left focal point. On desktop, center-right focal point */}
           <style dangerouslySetInnerHTML={{ __html: `
             .hero-mask-container {
-              mask-image: radial-gradient(circle at 35% 45%, black 20%, transparent 85%);
-              -webkit-mask-image: radial-gradient(circle at 35% 45%, black 20%, transparent 85%);
+              mask-image: radial-gradient(circle at 40% 45%, black 20%, transparent 85%);
+              -webkit-mask-image: radial-gradient(circle at 40% 45%, black 20%, transparent 85%);
             }
             @media (min-width: 768px) {
               .hero-mask-container {
@@ -38,23 +37,20 @@ const Hero: React.FC = () => {
           <img 
             src={CONFIG.profile.heroImage} 
             alt="Hero Visual Blend" 
-            className={`w-full h-full object-cover grayscale contrast-[1.15] brightness-[0.75] md:brightness-[0.7] mix-blend-luminosity transition-all duration-1000 ${imgLoaded ? 'opacity-80 scale-100' : 'opacity-0 scale-105'}`}
+            className={`w-full h-full object-cover grayscale contrast-[1.1] brightness-[0.75] md:brightness-[0.7] mix-blend-luminosity transition-all duration-1000 ${imgLoaded ? 'opacity-80 scale-100' : 'opacity-0 scale-105'}`}
             onLoad={() => setImgLoaded(true)}
             style={{ 
-              // Shifting the image to the right so the face (center of image) moves to the left of the screen
-              objectPosition: '35% 25%' 
+              // Reverted to a more balanced object position that worked well in previous versions
+              objectPosition: 'center 25%' 
             }}
           />
           
-          {/* Subtle color grading and blend-to-black overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212] opacity-60"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-transparent to-[#121212] opacity-40 md:hidden"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212] opacity-70"></div>
         </div>
       </div>
 
       <div className="z-20 text-center max-w-6xl mx-auto flex flex-col items-center">
         <div className="relative mb-6 md:mb-10 reveal opacity-0 translate-y-10 transition-all duration-700">
-          {/* Profile Avatar with Neon Ring */}
           <div className="w-24 h-24 md:w-44 md:h-44 rounded-full border-2 border-[#FF2C2C] overflow-hidden p-1 shadow-[0_0_40px_rgba(255,44,44,0.5)] bg-[#1F1F1F] flex items-center justify-center">
             <img 
               src={CONFIG.profile.photo} 
@@ -72,11 +68,10 @@ const Hero: React.FC = () => {
           </span>
         </h1>
         
-        <p className="text-base md:text-2xl font-bold text-white mt-2 md:mt-4 max-w-xs md:max-w-3xl mx-auto reveal opacity-0 translate-y-10 transition-all duration-700 delay-500 relative z-10 drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">
+        <p className="text-base md:text-2xl font-bold text-white mt-2 md:mt-4 max-w-xs md:max-w-3xl mx-auto reveal opacity-0 translate-y-10 transition-all duration-700 delay-500 relative z-10 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]">
           Wondershare Filmora Specialist | Turning <span className="text-[#FF2C2C] font-black">120 Seconds</span> into <span className="text-[#FF5F1F] font-black">Viral Gold</span>
         </p>
 
-        {/* Stats Counter Bar */}
         <div className="mt-8 md:mt-12 w-full grid grid-cols-3 gap-2 md:gap-4 border-y border-white/10 py-6 md:py-8 reveal opacity-0 translate-y-10 transition-all duration-700 delay-600 max-w-4xl backdrop-blur-md bg-black/60 relative z-10 shadow-2xl rounded-sm">
           {CONFIG.profile.metrics.map((metric, idx) => (
             <div key={idx} className="flex flex-col items-center">
@@ -94,17 +89,36 @@ const Hero: React.FC = () => {
         
         <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4 md:gap-6 reveal opacity-0 translate-y-10 transition-all duration-700 delay-800 relative z-10 w-full sm:w-auto">
           <a 
-            href="#booking" 
+            href="#direct-booking" 
             className="group animate-cta-pulse relative inline-flex items-center justify-center px-8 py-4 md:px-12 md:py-6 font-black text-base md:text-xl text-white uppercase tracking-[0.2em] bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_50px_rgba(255,44,44,0.5)] rounded-sm"
           >
-            <span className="relative">Claim Free Demo</span>
+            <span className="relative flex items-center">
+              Claim Free Demo
+              <svg className="w-6 h-6 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
           </a>
           <a 
             href="#work" 
             className="group relative inline-flex items-center justify-center px-8 py-4 md:px-12 md:py-6 font-black text-base md:text-xl text-white uppercase tracking-[0.2em] bg-black/80 backdrop-blur-xl border-2 border-[#4A0404] overflow-hidden transition-all duration-300 hover:border-[#FF2C2C] hover:text-[#FF2C2C] hover:shadow-[0_0_30px_rgba(255,44,44,0.2)] rounded-sm"
           >
-            <span className="relative">View Arsenal</span>
+            <span className="relative flex items-center">
+              View Arsenal
+              <svg className="w-6 h-6 ml-2 group-hover:translate-y-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </span>
           </a>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center opacity-40">
+        <div className="w-[1px] h-12 bg-gradient-to-b from-[#FF2C2C] to-transparent mb-2"></div>
+        <div className="animate-bounce">
+          <svg className="w-6 h-6 text-[#FF5F1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </div>
     </section>

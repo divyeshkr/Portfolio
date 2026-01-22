@@ -9,11 +9,11 @@ const Header: React.FC = () => {
       <div className="hidden lg:flex space-x-8 text-[11px] font-black uppercase tracking-[0.2em] text-[#EDEDED]/50">
         <a href="#work" className="hover:text-[#FF5F1F] transition-colors">The Arsenal</a>
         <a href="#style" className="hover:text-[#FF5F1F] transition-colors">Style</a>
-        <a href="#booking" className="hover:text-[#FF5F1F] transition-colors">Free Demo</a>
+        <a href="#direct-booking" className="hover:text-[#FF5F1F] transition-colors">Free Demo</a>
         <a href="#contact" className="hover:text-[#FF5F1F] transition-colors">Contact</a>
       </div>
       <a 
-        href="#booking"
+        href="#direct-booking"
         className="bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] text-white px-6 py-2.5 text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,44,44,0.3)]"
       >
         Hire Me
