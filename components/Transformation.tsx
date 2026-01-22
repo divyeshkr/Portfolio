@@ -7,7 +7,7 @@ const Transformation: React.FC = () => {
 
   const getEmbedUrl = (url: string) => {
     const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}autoplay=1&mute=0&rel=0&modestbranding=1`;
+    return `${url}${separator}autoplay=1&mute=0&rel=0&modestbranding=1&iv_load_policy=3`;
   };
 
   const openVideo = (url: string, title: string, thumbnail: string) => {
@@ -95,7 +95,7 @@ const Transformation: React.FC = () => {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <div className="w-full max-w-[min(90vw,calc(90vh*9/16))] flex justify-between items-center mb-4">
+          <div className="w-full max-w-[min(90vw,calc(85vh*9/16))] flex justify-between items-center mb-4">
             <h4 className="text-[#FF2C2C] font-black uppercase tracking-widest text-xs md:text-sm">{selectedVideo.title}</h4>
             <button 
               onClick={closeModal}
@@ -108,17 +108,17 @@ const Transformation: React.FC = () => {
           </div>
 
           <div 
-            className="relative w-[min(90vw,calc(90vh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_50px_rgba(255,44,44,0.3)] animate-in zoom-in-95 duration-300"
+            className="relative w-[min(95vw,calc(85vh*9/16))] aspect-[9/16] bg-black rounded-sm overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_50px_rgba(255,44,44,0.3)] animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {!isPlaying ? (
               <div 
-                className="w-full h-full group cursor-pointer"
+                className="w-full h-full group cursor-pointer relative"
                 onClick={() => setIsPlaying(true)}
               >
                 <img 
                   src={selectedVideo.thumbnail} 
-                  className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity bg-[#121212]" 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity bg-[#121212]" 
                   alt="Video Thumbnail"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -132,7 +132,7 @@ const Transformation: React.FC = () => {
             ) : (
               <iframe 
                 src={selectedVideo.url}
-                className="w-full h-full border-0"
+                className="absolute inset-0 w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>

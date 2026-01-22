@@ -7,7 +7,7 @@ const Skills: React.FC = () => {
 
   const getEmbedUrl = (url: string) => {
     const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}autoplay=1&mute=0&rel=0&modestbranding=1&showinfo=0`;
+    return `${url}${separator}autoplay=1&mute=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3`;
   };
 
   const openVideo = () => {
@@ -61,7 +61,7 @@ const Skills: React.FC = () => {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-28 h-5 md:h-7 bg-[#1F1F1F] rounded-b-2xl z-20" />
               
               <img 
-                src={CONFIG.styleImage} 
+                src={selectedVideo ? selectedVideo.thumbnail : CONFIG.styleImage} 
                 alt="Style Showcase" 
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
               />
@@ -83,34 +83,35 @@ const Skills: React.FC = () => {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <div className="w-full max-w-[min(90vw,calc(90vh*9/16))] flex justify-end mb-4">
+          <div className="w-full max-w-[min(90vw,calc(85vh*9/16))] flex justify-between items-center mb-4">
+            <span className="text-[#FF2C2C] font-black uppercase text-[10px] tracking-widest">Signature Style</span>
             <button 
               onClick={closeModal}
               className="text-white hover:text-[#FF2C2C] transition-colors p-2 bg-white/5 rounded-full"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
           <div 
-            className="relative w-[min(90vw,calc(90vh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_50px_rgba(255,44,44,0.3)] animate-in zoom-in-95 duration-300"
+            className="relative w-[min(95vw,calc(85vh*9/16))] aspect-[9/16] bg-black rounded-sm overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_60px_rgba(255,44,44,0.4)] animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {!isPlaying ? (
               <div 
-                className="w-full h-full group cursor-pointer"
+                className="w-full h-full group cursor-pointer relative"
                 onClick={() => setIsPlaying(true)}
               >
                 <img 
                   src={selectedVideo.thumbnail} 
-                  className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity bg-[#121212]" 
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity bg-[#121212]" 
                   alt="Video Thumbnail"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-[#FF2C2C] flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)] group-hover:scale-110 transition-transform">
-                    <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#FF2C2C] flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)] group-hover:scale-110 transition-transform">
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
@@ -119,7 +120,7 @@ const Skills: React.FC = () => {
             ) : (
               <iframe 
                 src={selectedVideo.url}
-                className="w-full h-full border-0"
+                className="absolute inset-0 w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
