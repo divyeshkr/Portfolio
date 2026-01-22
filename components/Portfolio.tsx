@@ -6,8 +6,9 @@ const Portfolio: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const getEmbedUrl = (url: string) => {
+    const videoId = url.split('/').pop()?.split('?')[0];
     const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}autoplay=1&mute=0&rel=0&modestbranding=1&iv_load_policy=3`;
+    return `${url}${separator}autoplay=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3`;
   };
 
   const openModal = (e: React.MouseEvent, item: any) => {
@@ -82,20 +83,20 @@ const Portfolio: React.FC = () => {
           className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModal}
         >
-          <div className="w-full max-w-[min(90vw,calc(85vh*9/16))] flex justify-between items-center mb-4">
-            <h4 className="text-[#FF2C2C] font-black uppercase tracking-widest text-xs md:text-sm truncate mr-4">{selectedVideo.title}</h4>
+          <div className="w-full max-w-[min(90vw,calc(70svh*9/16))] flex justify-between items-center mb-4">
+            <h4 className="text-[#FF2C2C] font-black uppercase tracking-widest text-[10px] md:text-xs truncate mr-4">{selectedVideo.title}</h4>
             <button 
               onClick={closeModal}
               className="text-white hover:text-[#FF2C2C] transition-colors p-2 bg-white/5 rounded-full"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
           <div 
-            className="relative w-[min(95vw,calc(85vh*9/16))] aspect-[9/16] bg-black rounded-sm overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_60px_rgba(255,44,44,0.4)] animate-in zoom-in-95 duration-300 group/player"
+            className="relative w-[min(90vw,calc(70svh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF2C2C] shadow-[0_0_60px_rgba(255,44,44,0.4)] animate-in zoom-in-95 duration-300 group/player"
             onClick={(e) => e.stopPropagation()}
           >
             {!isPlaying ? (
@@ -109,16 +110,8 @@ const Portfolio: React.FC = () => {
                   alt="Video Thumbnail"
                 />
                 
-                {/* Proof Overlay on Hover */}
-                <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-center px-6">
-                        <span className="text-[#FF2C2C] font-black uppercase text-[10px] tracking-[0.4em] mb-4 block">Proven Performance</span>
-                        <h5 className="text-white text-3xl font-black uppercase italic tracking-tighter">{selectedVideo.proof}</h5>
-                    </div>
-                </div>
-
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:scale-75 transition-transform duration-500">
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#FF2C2C] flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)]">
+                  <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FF2C2C] flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)]">
                     <svg className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -126,20 +119,12 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <>
-                <iframe 
-                  src={selectedVideo.url}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-                {/* Hover overlay for proof even while playing (optional, only visible when hovered) */}
-                <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover/player:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
-                    <div className="bg-black/60 backdrop-blur-md border border-white/10 p-3 rounded-lg">
-                        <span className="text-[#FF2C2C] text-[8px] font-black uppercase tracking-widest">{selectedVideo.proof}</span>
-                    </div>
-                </div>
-              </>
+              <iframe 
+                src={selectedVideo.url}
+                className="absolute inset-0 w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             )}
           </div>
         </div>
