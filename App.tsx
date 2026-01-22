@@ -1,9 +1,10 @@
-
 import React, { useEffect } from 'react';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
+import BeyondEditing from './components/BeyondEditing';
 import Transformation from './components/Transformation';
 import Portfolio from './components/Portfolio';
+import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
@@ -29,13 +30,15 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black selection:bg-[#FF0000] selection:text-white">
+    <div className="min-h-screen bg-[#121212] selection:bg-[#FF2C2C] selection:text-white">
       <Header />
       <main>
         <Hero />
         <Skills />
+        <BeyondEditing />
         <Transformation />
         <Portfolio />
+        <BookingForm />
       </main>
       <Footer />
     </div>

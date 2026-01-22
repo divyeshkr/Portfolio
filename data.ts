@@ -5,8 +5,26 @@ export const CONFIG = {
     role: "Short-Form Video Specialist",
     tagline: "Wondershare Filmora Specialist | Turning 0-120 Seconds into Viral Gold",
     photo: "https://lh3.googleusercontent.com/d/1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_",
-    stats: "10+ Global Clients Served"
+    stats: "10+ Global Clients Served",
+    demoOffer: "No idea? No problem. I’ll edit 1 short video for you absolutely free. Upload it, see the results, then we talk."
   },
+  beyondEditing: [
+    {
+      title: "Script Writing",
+      description: "High-retention hooks and structural storytelling tailored for the algorithm.",
+      icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+    },
+    {
+      title: "Custom Websites",
+      description: "Conversion-focused landing pages designed to turn viewers into clients.",
+      icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+    },
+    {
+      title: "Face of Video",
+      description: "UGC-style delivery. I'll be the on-screen talent for your brand's content.",
+      icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+    }
+  ],
   skills: [
     "Kinetic Typography",
     "Hook-based Captioning",
@@ -70,6 +88,7 @@ export const CONFIG = {
   ],
   socials: {
     instagram: "https://instagram.com/sasta.superman",
-    instaHandle: "@sasta.superman"
+    instaHandle: "@sasta.superman",
+    bookingLink: "https://docs.google.com/forms/d/e/1FAIpQLSc5zR6aPJ88GEZ0--rXEiM2Zj16894WtTMYsLCw2aWL1tjGNQ/viewform"
   }
 };
