@@ -27,6 +27,13 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex space-x-8 text-[11px] font-black uppercase tracking-[0.2em] text-[#EDEDED]/50">
           <Link 
+            to="/" 
+            className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/' ? 'text-[#FF2C2C]' : ''}`}
+          >
+            Home
+          </Link>
+
+          <Link 
             to="/arsenal" 
             className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/arsenal' ? 'text-[#FF2C2C]' : ''}`}
           >
@@ -45,13 +52,6 @@ const Header: React.FC = () => {
               className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/about' ? 'text-[#FF2C2C]' : ''}`}
           >
               About
-          </Link>
-          
-          <Link 
-            to={{ pathname: "/", hash: "#style" }} 
-            className="hover:text-[#FF5F1F] transition-colors"
-          >
-            Style
           </Link>
 
           <Link 
@@ -103,6 +103,14 @@ const Header: React.FC = () => {
         {/* Menu Links */}
         <div className="flex flex-col items-center space-y-8 relative z-10">
           <Link 
+            to="/" 
+            onClick={closeMenu} 
+            className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
+          >
+            Home
+          </Link>
+
+          <Link 
             to="/arsenal" 
             onClick={closeMenu} 
             className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/arsenal' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
@@ -124,14 +132,6 @@ const Header: React.FC = () => {
             className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/about' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
           >
             About
-          </Link>
-          
-          <Link 
-            to={{ pathname: "/", hash: "#style" }} 
-            onClick={closeMenu} 
-            className="text-3xl font-black uppercase tracking-tighter text-white hover:text-[#FF2C2C] transition-colors"
-          >
-            Style
           </Link>
           
           <Link 
