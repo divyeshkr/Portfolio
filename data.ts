@@ -1,3 +1,4 @@
+
 export const CONFIG = {
   profile: {
     name: "Divyesh Creates",
@@ -32,9 +33,18 @@ export const CONFIG = {
     {
       title: "Face of Video",
       description: "UGC-style delivery. I'll be the on-screen talent for your brand's content.",
-      icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+      icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
     }
   ],
+  thumbnails: {
+    title: "Thumbnail Design",
+    description: "The video doesn't matter if they don't click. I engineer high-contrast, curiosity-gap thumbnails for Long Form & Shorts.",
+    examples: [
+      { type: "Long Form", image: "https://img.youtube.com/vi/DqL7n2H8Mjk/maxresdefault.jpg", label: "High CTR" },
+      { type: "Short Form", image: "https://img.youtube.com/vi/mvV4iN7rT7E/maxresdefault.jpg", label: "Visual Hook" },
+      { type: "Long Form", image: "https://img.youtube.com/vi/_IjuBzBx6lo/maxresdefault.jpg", label: "Story Driven" }
+    ]
+  },
   skills: [
     "High-Retention Hooks",
     "Talking Head Mastery",

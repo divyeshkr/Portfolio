@@ -1,6 +1,6 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 
 const rootElement = document.getElementById('root');
@@ -9,8 +9,19 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+try {
+  root.render(
+    <React.StrictMode>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </React.StrictMode>
+  );
+} catch (error) {
+  console.error("Render Error:", error);
+  rootElement.innerHTML = `<div style="color: red; padding: 20px;">
+    <h1>Something went wrong.</h1>
+    <pre>${error instanceof Error ? error.message : JSON.stringify(error)}</pre>
+  </div>`;
+}
