@@ -6,14 +6,6 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  // With HashRouter, normal anchor tags for ID scrolling work best on the home page.
-  // When on other pages, we need to link back to Home first.
-  const isHome = location.pathname === '/';
-
-  const getLink = (hash: string) => {
-    return isHome ? hash : `/${hash}`;
-  };
-
   // Prevent scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
@@ -55,8 +47,19 @@ const Header: React.FC = () => {
               About
           </Link>
           
-          <a href={getLink("#style")} className="hover:text-[#FF5F1F] transition-colors">Style</a>
-          <a href={getLink("#demo-request")} className="hover:text-[#FF5F1F] transition-colors">Free Demo</a>
+          <Link 
+            to={{ pathname: "/", hash: "#style" }} 
+            className="hover:text-[#FF5F1F] transition-colors"
+          >
+            Style
+          </Link>
+
+          <Link 
+            to={{ pathname: "/", hash: "#demo-request" }} 
+            className="hover:text-[#FF5F1F] transition-colors"
+          >
+            Free Demo
+          </Link>
         </div>
 
         {/* Desktop CTA */}
@@ -123,21 +126,21 @@ const Header: React.FC = () => {
             About
           </Link>
           
-          <a 
-            href={getLink("#style")} 
+          <Link 
+            to={{ pathname: "/", hash: "#style" }} 
             onClick={closeMenu} 
             className="text-3xl font-black uppercase tracking-tighter text-white hover:text-[#FF2C2C] transition-colors"
           >
             Style
-          </a>
+          </Link>
           
-          <a 
-            href={getLink("#demo-request")} 
+          <Link 
+            to={{ pathname: "/", hash: "#demo-request" }}
             onClick={closeMenu} 
             className="text-3xl font-black uppercase tracking-tighter text-white hover:text-[#FF2C2C] transition-colors"
           >
             Free Demo
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu CTA */}

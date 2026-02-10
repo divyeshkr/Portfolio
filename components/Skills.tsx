@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="style" className="py-12 md:py-24 px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30">
+    <section id="style" className="py-12 md:py-24 px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30 scroll-mt-32">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16">
           <div className="w-full lg:w-3/5">

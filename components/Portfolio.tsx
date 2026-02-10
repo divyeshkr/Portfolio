@@ -29,7 +29,7 @@ const Portfolio: React.FC = () => {
   };
 
   return (
-    <section id="work" className="py-12 md:py-24 px-4 md:px-6 bg-[#121212] relative overflow-hidden">
+    <section id="work" className="py-12 md:py-24 px-4 md:px-6 bg-[#121212] relative overflow-hidden scroll-mt-32">
       {/* Background depth glow */}
       <div className="absolute top-0 right-0 w-full h-full bg-[#4A0404]/05 pointer-events-none" />
       

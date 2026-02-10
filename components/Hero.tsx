@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CONFIG } from '../data';
 
 const Hero: React.FC = () => {
@@ -64,12 +65,12 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="mt-12 md:mt-16 flex flex-col md:flex-row items-center gap-6 md:gap-8 reveal opacity-0 translate-y-10 transition-all duration-700 delay-800 w-full md:w-auto">
-          <a 
-            href="#demo-request" 
+          <Link 
+            to={{ pathname: "/", hash: "#demo-request" }}
             className="w-full md:w-auto group animate-cta-pulse relative inline-flex items-center justify-center px-10 py-5 font-black text-lg text-white uppercase tracking-widest bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,44,44,0.3)]"
           >
             <span className="relative">Claim Free Demo Edit</span>
-          </a>
+          </Link>
           
           {/* Kinetic Arrow */}
           <div className="hidden md:flex text-[#FF5F1F] animate-pulse items-center justify-center">
@@ -78,12 +79,12 @@ const Hero: React.FC = () => {
              </svg>
           </div>
           
-          <a 
-            href="#work" 
+          <Link 
+            to="/arsenal"
             className="w-full md:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-black text-lg text-white uppercase tracking-widest bg-transparent border-2 border-[#4A0404] overflow-hidden transition-all duration-300 hover:border-[#FF2C2C] hover:text-[#FF2C2C] hover:shadow-[0_0_20px_rgba(74,4,4,0.3)]"
           >
             <span className="relative">View The Arsenal</span>
-          </a>
+          </Link>
         </div>
       </div>
 
