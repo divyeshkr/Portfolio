@@ -184,16 +184,27 @@ const TheArsenalPage: React.FC = () => {
         {/* Video Modal */}
         {selectedVideo && (
         <div 
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          <div className="w-full max-w-[min(90vw,calc(85svh*9/16))] flex justify-between items-center mb-4">
-            <h4 className="text-[#FF5F1F] font-black uppercase tracking-widest text-[10px] md:text-xs truncate mr-4">{selectedVideo.title}</h4>
-            <button onClick={closeModals} className="text-white hover:text-[#FF2C2C] transition-colors p-2 bg-white/5 rounded-full">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-          </div>
+          
           <div className="relative w-[min(90vw,calc(85svh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
+            
+            {/* Header Overlay */}
+            <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                  {selectedVideo.title}
+                </span>
+                <button 
+                  onClick={closeModals}
+                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+            </div>
+
             {!isPlaying ? (
               <div className="w-full h-full group cursor-pointer relative" onClick={() => setIsPlaying(true)}>
                 <img src={selectedVideo.thumbnail} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="Thumbnail"/>
@@ -213,21 +224,32 @@ const TheArsenalPage: React.FC = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          <div className="w-full max-w-5xl flex justify-between items-center mb-4 px-4">
-             <h4 className="text-[#FF5F1F] font-black uppercase tracking-widest text-[10px] md:text-xs truncate mr-4">{selectedImage.title}</h4>
-            <button onClick={closeModals} className="text-white hover:text-[#FF2C2C] transition-colors p-2 bg-white/5 rounded-full">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
+          <div className="relative max-w-full max-h-[85vh] animate-in zoom-in-95 duration-300">
+             {/* Header Overlay */}
+             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                  {selectedImage.title}
+                </span>
+                <button 
+                  onClick={closeModals}
+                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+            </div>
+            
+            <img 
+                src={selectedImage.url} 
+                alt={selectedImage.title} 
+                className="max-w-full max-h-[85vh] object-contain rounded border-2 border-[#FF5F1F] shadow-[0_0_40px_rgba(255,95,31,0.3)]"
+                onClick={(e) => e.stopPropagation()}
+            />
           </div>
-          <img 
-            src={selectedImage.url} 
-            alt={selectedImage.title} 
-            className="max-w-full max-h-[80vh] object-contain rounded border-2 border-[#FF5F1F] shadow-[0_0_40px_rgba(255,95,31,0.3)] animate-in zoom-in-95 duration-300"
-            onClick={(e) => e.stopPropagation()}
-          />
         </div>
       )}
 
