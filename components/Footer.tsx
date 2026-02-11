@@ -34,18 +34,18 @@ const Footer: React.FC = () => {
                     <li><Link to="/" className="hover:text-[#FF2C2C] transition-colors">Home</Link></li>
                     <li><Link to="/arsenal" className="hover:text-[#FF2C2C] transition-colors">The Arsenal</Link></li>
                     <li><Link to="/about" className="hover:text-[#FF2C2C] transition-colors">About</Link></li>
-                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Services</Link></li>
+                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Other Services</Link></li>
                 </ul>
             </div>
 
-            {/* Services */}
+            {/* Other Services */}
             <div>
-                <h4 className="text-white font-black uppercase tracking-[0.2em] text-xs mb-8">Services</h4>
+                <h4 className="text-white font-black uppercase tracking-[0.2em] text-xs mb-8">Other Services</h4>
                 <ul className="space-y-4 text-sm text-[#EDEDED]/60 font-medium">
-                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Short-Form Editing</Link></li>
-                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Motion Graphics</Link></li>
-                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Thumbnail Design</Link></li>
-                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Strategy Consulting</Link></li>
+                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Script Writing</Link></li>
+                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Custom Websites</Link></li>
+                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Face of Video</Link></li>
+                    <li><Link to="/services" className="hover:text-[#FF2C2C] transition-colors">Production & Direction</Link></li>
                 </ul>
             </div>
 
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                             href={`mailto:${CONFIG.profile.email}`} 
                             className="w-10 h-10 bg-[#1A1A1A] rounded-lg flex items-center justify-center text-[#EDEDED]/60 hover:bg-[#FF2C2C] hover:text-white transition-all duration-300"
                         >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </a>
                     </li>
                 </ul>

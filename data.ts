@@ -1,4 +1,5 @@
 
+
 export const CONFIG = {
   profile: {
     name: "Divyesh Creates",
@@ -33,16 +34,21 @@ export const CONFIG = {
     {
       title: "Face of Video",
       description: "UGC-style delivery. I'll be the on-screen talent for your brand's content.",
-      icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+      icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+    },
+    {
+      title: "Production & Direction",
+      description: "I shoot cinematic videos and direct your content on-location. I don't just edit; I handle the camera and creative direction.",
+      icon: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
     }
   ],
   thumbnails: {
     title: "Thumbnail Design",
     description: "The video doesn't matter if they don't click. I engineer high-contrast, curiosity-gap thumbnails for Long Form & Shorts.",
     examples: [
-      { type: "Long Form", image: "https://img.youtube.com/vi/DqL7n2H8Mjk/maxresdefault.jpg", label: "High CTR" },
-      { type: "Short Form", image: "https://img.youtube.com/vi/mvV4iN7rT7E/maxresdefault.jpg", label: "Visual Hook" },
-      { type: "Long Form", image: "https://img.youtube.com/vi/_IjuBzBx6lo/maxresdefault.jpg", label: "Story Driven" }
+      { type: "Thumbnail", image: "https://lh3.googleusercontent.com/d/17sZ9xALx989MJLHSJF6g4SHt9-TyGw6Y", label: "Strategy" },
+      { type: "Thumbnail", image: "https://lh3.googleusercontent.com/d/1ZQXkdFCJ1sPISeY8mOhqdsy071wg8xw5", label: "High CTR" },
+      { type: "Thumbnail", image: "https://lh3.googleusercontent.com/d/1QtVzbuoWQcf_T7VAi-iOBtUgGPgKhltp", label: "Viral" }
     ]
   },
   skills: [
@@ -110,6 +116,29 @@ export const CONFIG = {
       proof: "Premium Aesthetic",
       thumbnail: "https://img.youtube.com/vi/NmCjEEz7xaI/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/NmCjEEz7xaI" 
+    }
+  ],
+  cinematography: [
+    {
+      id: 1,
+      title: "Chandrashila",
+      tag: "Cinematic Travel",
+      thumbnail: "https://img.youtube.com/vi/SzfPDDkwdeg/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/SzfPDDkwdeg"
+    },
+    {
+      id: 2,
+      title: "NSUT IS BLACK",
+      tag: "Dark Aesthetic",
+      thumbnail: "https://img.youtube.com/vi/45nz7smoExU/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/45nz7smoExU"
+    },
+    {
+      id: 3,
+      title: "Caption Express Agent",
+      tag: "Award Winning",
+      thumbnail: "https://img.youtube.com/vi/GCE8zjgtGIQ/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/GCE8zjgtGIQ"
     }
   ],
   socials: {

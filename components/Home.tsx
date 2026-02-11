@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Hero from './Hero';
 import Skills from './Skills';
 import Transformation from './Transformation';
-import Portfolio from './Portfolio';
+import FeaturedWork from './FeaturedWork';
 import BookingForm from './BookingForm';
 
 const Home: React.FC = () => {
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       <Skills />
       {/* BeyondEditing moved to separate page */}
       <Transformation />
-      <Portfolio />
+      <FeaturedWork />
       <BookingForm />
     </>
   );

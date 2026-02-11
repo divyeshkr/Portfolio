@@ -41,17 +41,17 @@ const Header: React.FC = () => {
           </Link>
           
           <Link 
-              to="/services" 
-              className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/services' ? 'text-[#FF2C2C]' : ''}`}
-          >
-              Services & Thumbnails
-          </Link>
-
-          <Link 
               to="/about" 
               className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/about' ? 'text-[#FF2C2C]' : ''}`}
           >
               About
+          </Link>
+
+          <Link 
+              to="/services" 
+              className={`hover:text-[#FF5F1F] transition-colors ${location.pathname === '/services' ? 'text-[#FF2C2C]' : ''}`}
+          >
+              Other Services
           </Link>
 
           <Link 
@@ -119,19 +119,19 @@ const Header: React.FC = () => {
           </Link>
           
           <Link 
-            to="/services" 
-            onClick={closeMenu} 
-            className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/services' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
-          >
-            Services
-          </Link>
-
-          <Link 
             to="/about" 
             onClick={closeMenu} 
             className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/about' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
           >
             About
+          </Link>
+
+          <Link 
+            to="/services" 
+            onClick={closeMenu} 
+            className={`text-3xl font-black uppercase tracking-tighter transition-colors ${location.pathname === '/services' ? 'text-[#FF2C2C] italic' : 'text-white hover:text-[#FF2C2C]'}`}
+          >
+            Other Services
           </Link>
           
           <Link 
