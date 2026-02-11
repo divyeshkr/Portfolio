@@ -128,10 +128,10 @@ export const CONFIG = {
     },
     {
       id: 2,
-      title: "NSUT IS BLACK",
-      tag: "Dark Aesthetic",
-      thumbnail: "https://img.youtube.com/vi/45nz7smoExU/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/45nz7smoExU"
+      title: "Editing 1",
+      tag: "Visual Flow",
+      thumbnail: "https://img.youtube.com/vi/iKyuQJUyu6c/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/iKyuQJUyu6c"
     },
     {
       id: 3,

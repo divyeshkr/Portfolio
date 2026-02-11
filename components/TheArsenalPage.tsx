@@ -238,7 +238,7 @@ const TheArsenalPage: React.FC = () => {
                                 <div 
                                     key={idx} 
                                     onClick={() => openImage(thumb.image, thumb.label)}
-                                    className="group relative aspect-square md:aspect-video bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl overflow-hidden hover:border-[#FF5F1F] transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10"
+                                    className="group relative aspect-video bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl overflow-hidden hover:border-[#FF5F1F] transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10"
                                     style={{ transitionDelay: `${idx * 50}ms` }}
                                 >
                                     <img 
