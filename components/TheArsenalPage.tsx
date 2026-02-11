@@ -7,7 +7,7 @@ type Tab = 'all' | 'edits' | 'cinematography' | 'thumbnails';
 const TheArsenalPage: React.FC = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<Tab>('all');
-  const [selectedVideo, setSelectedVideo] = useState<{url: string, title: string, thumbnail: string, proof?: string} | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{url: string, title: string, thumbnail: string, proof?: string, isVertical: boolean} | null>(null);
   const [selectedImage, setSelectedImage] = useState<{url: string, title: string} | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -45,14 +45,15 @@ const TheArsenalPage: React.FC = () => {
     return `${url}${separator}autoplay=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3`;
   };
 
-  const openVideo = (item: any) => {
+  const openVideo = (item: any, isVertical: boolean) => {
     if (item.videoUrl === '#' || !item.videoUrl) return;
     setIsPlaying(false);
     setSelectedVideo({ 
         url: getEmbedUrl(item.videoUrl), 
         title: item.title, 
         thumbnail: item.thumbnail,
-        proof: item.proof || item.tag
+        proof: item.proof || item.tag,
+        isVertical
     });
   };
 
@@ -123,7 +124,7 @@ const TheArsenalPage: React.FC = () => {
                                 .map((item, index) => (
                                 <div 
                                     key={item.id} 
-                                    onClick={() => openVideo(item)}
+                                    onClick={() => openVideo(item, true)}
                                     className="group relative aspect-[9/16] bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-300 cursor-pointer shadow-xl hover:shadow-[0_20px_40px_rgba(255,44,44,0.1)] reveal opacity-0 translate-y-10"
                                     style={{ transitionDelay: `${index * 50}ms` }}
                                 >
@@ -175,7 +176,7 @@ const TheArsenalPage: React.FC = () => {
                                 .map((item, index) => (
                                 <div 
                                     key={item.id} 
-                                    onClick={() => openVideo(item)}
+                                    onClick={() => openVideo(item, false)}
                                     className={`group relative aspect-video bg-[#1A1A1A] border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10 
                                       ${item.tag === 'Award Winning' 
                                         ? 'border-[#FFD700] hover:border-[#FFD700] hover:shadow-[0_0_30px_rgba(255,215,0,0.3)]' 
@@ -290,7 +291,14 @@ const TheArsenalPage: React.FC = () => {
           onClick={closeModals}
         >
           
-          <div className="relative w-[min(90vw,calc(85svh*9/16))] aspect-[9/16] bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300" onClick={(e) => e.stopPropagation()}>
+          <div 
+            className={`relative bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 
+                ${selectedVideo.isVertical 
+                    ? 'w-[min(85vw,calc(80svh*9/16))] aspect-[9/16]' 
+                    : 'w-[min(85vw,calc(80svh*16/9))] aspect-video'
+                }`}
+            onClick={(e) => e.stopPropagation()}
+          >
             
             {/* Header Overlay */}
             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
@@ -329,7 +337,7 @@ const TheArsenalPage: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          <div className="relative max-w-full max-h-[85vh] animate-in zoom-in-95 duration-300">
+          <div className="relative max-w-[85vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
              {/* Header Overlay */}
              <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
                 <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
