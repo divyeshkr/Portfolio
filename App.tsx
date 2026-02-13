@@ -6,6 +6,7 @@ import TheArsenalPage from './components/TheArsenalPage';
 import About from './components/About';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import { CONFIG } from './data';
 
 const App: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -38,7 +39,9 @@ const App: React.FC = () => {
       {/* Mobile Sticky CTA with New Palette - Moved up for iOS Home Bar Safety */}
       <div className="md:hidden fixed bottom-10 left-1/2 -translate-x-1/2 z-[90] w-full px-6 pointer-events-none">
         <a 
-            href="/#demo-request"
+            href={CONFIG.socials.bookingLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-center bg-gradient-to-r from-[#FF2C2C] to-[#FF5F1F] text-white font-black uppercase tracking-[0.2em] text-xs py-4 rounded-full shadow-[0_10px_30px_rgba(255,44,44,0.4)] border-2 border-white/10 pointer-events-auto"
         >
             Book Free Demo Edit
