@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CONFIG } from '../data';
 
 const Portfolio: React.FC = () => {
-  const [selectedVideo, setSelectedVideo] = useState<{url: string, title: string, thumbnail: string, proof: string} | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{url: string, title: string, thumbnail: string, proof: string, isVertical: boolean} | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const getEmbedUrl = (url: string) => {
@@ -11,7 +11,7 @@ const Portfolio: React.FC = () => {
     return `${url}${separator}autoplay=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3`;
   };
 
-  const openModal = (e: React.MouseEvent, item: any) => {
+  const openModal = (e: React.MouseEvent, item: any, isVertical: boolean = true) => {
     if (item.videoUrl === '#' || !item.videoUrl) return;
     e.preventDefault();
     setIsPlaying(false);
@@ -19,7 +19,8 @@ const Portfolio: React.FC = () => {
         url: getEmbedUrl(item.videoUrl), 
         title: item.title, 
         thumbnail: item.thumbnail,
-        proof: item.proof
+        proof: item.proof,
+        isVertical
     });
   };
 
@@ -41,7 +42,7 @@ const Portfolio: React.FC = () => {
           <p className="text-[#EDEDED]/40 uppercase tracking-widest font-black text-[10px] md:text-sm">Engineered for <span className="text-[#FF5F1F]">Maximum Retention</span></p>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-12 mb-16">
           {CONFIG.portfolio.map((item, index) => (
             <div 
               key={item.id} 
@@ -49,7 +50,7 @@ const Portfolio: React.FC = () => {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div 
-                onClick={(e) => openModal(e, item)}
+                onClick={(e) => openModal(e, item, true)}
                 className="group relative block aspect-[9/16] w-full bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-500 cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
               >
                 <img 
@@ -80,6 +81,56 @@ const Portfolio: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Long Form Section */}
+        {CONFIG.longForm && CONFIG.longForm.length > 0 && (
+          <div className="mt-24">
+            <div className="mb-8 md:mb-12 text-center reveal opacity-0 translate-y-10 transition-all duration-700">
+              <h3 className="text-2xl md:text-5xl font-black uppercase italic mb-4 text-[#EDEDED]">
+                Long <span className="text-[#FF5F1F]">Form</span>
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+              {CONFIG.longForm.map((item, index) => (
+                <div 
+                  key={item.id} 
+                  className={`reveal opacity-0 translate-y-10 transition-all duration-700`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div 
+                    onClick={(e) => openModal(e, item, false)}
+                    className="group relative block aspect-video w-full bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-500 cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.5)]"
+                  >
+                    <img 
+                      src={item.thumbnail} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-90"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-3 md:p-8 flex flex-col justify-end">
+                      <span className="text-[#FF5F1F] text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mb-1">{item.tag}</span>
+                      <h3 className="text-sm md:text-3xl font-black uppercase tracking-tighter leading-tight mb-1 md:mb-2 truncate sm:whitespace-normal group-hover:text-white transition-colors">
+                        {item.title}
+                      </h3>
+                      <div className="inline-flex items-center space-x-1 md:space-x-2 bg-[#4A0404]/40 backdrop-blur-md px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg border border-[#FF2C2C]/20 w-fit">
+                        <span className="text-[6px] md:text-[10px] font-black text-[#EDEDED] uppercase tracking-wider">{item.proof}</span>
+                      </div>
+                    </div>
+                    
+                    {/* Play Button Overlay */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                      <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] flex items-center justify-center shadow-[0_0_20px_rgba(255,44,44,0.5)]">
+                        <svg className="w-5 h-5 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {selectedVideo && (
@@ -88,7 +139,11 @@ const Portfolio: React.FC = () => {
           onClick={closeModal}
         >
           <div 
-            className="relative w-[min(90vw,calc(85svh*9/16))] aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 group/player"
+            className={`relative bg-black rounded-2xl overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 group/player
+                ${selectedVideo.isVertical 
+                    ? 'w-[min(90vw,calc(85svh*9/16))] aspect-[9/16]' 
+                    : 'w-[min(90vw,calc(85svh*16/9))] aspect-video'
+                }`}
             onClick={(e) => e.stopPropagation()}
           >
              {/* Header Overlay */}

@@ -7,10 +7,20 @@ const FeaturedWork: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<{url: string, title: string} | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Get specific items: 3 edits for laptop view (smaller), 1 cinematography, 1 thumbnail
-  const edits = CONFIG.portfolio.slice(0, 3);
+  // Get specific items: 3 random edits for laptop view (smaller), 1 cinematography, 1 random thumbnail
+  // Use state to hold the randomized items so they don't change on re-renders
+  const [randomizedContent] = useState(() => {
+    const shuffledEdits = [...CONFIG.portfolio].sort(() => 0.5 - Math.random()).slice(0, 3);
+    const shuffledThumbnails = [...CONFIG.thumbnails.examples].sort(() => 0.5 - Math.random());
+    return {
+      edits: shuffledEdits,
+      thumbnail: shuffledThumbnails[0]
+    };
+  });
+
+  const edits = randomizedContent.edits;
   const cinema = CONFIG.cinematography?.[0];
-  const thumbnail = CONFIG.thumbnails.examples[0];
+  const thumbnail = randomizedContent.thumbnail;
 
   const getEmbedUrl = (url: string) => {
     if (!url) return '';
@@ -52,12 +62,12 @@ const FeaturedWork: React.FC = () => {
 
         {/* Short Form Row - 3 Items, constrained width on desktop for smaller look */}
         <div className="max-w-5xl mx-auto mb-12 md:mb-20">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
+            <div className="grid grid-cols-3 gap-2 md:gap-6">
                 {edits.map((item, index) => (
                     <div 
                         key={item.id}
                         onClick={() => openVideo(item, true)}
-                        className={`group relative aspect-[9/16] bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10 ${index === 2 ? 'hidden md:block' : ''}`}
+                        className={`group relative aspect-[9/16] bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl md:rounded-2xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10`}
                         style={{ transitionDelay: `${index * 100}ms` }}
                     >
                         <img 

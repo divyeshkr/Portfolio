@@ -5,7 +5,7 @@ export const CONFIG = {
     name: "Divyesh Creates",
     email: "divyesh.yts@gmail.com",
     role: "Short-Form Video Specialist",
-    tagline: "Wondershare Filmora Specialist | Turning 120 Seconds into Viral Gold",
+    tagline: "Visual Storytelling Expert | Turning 120 Seconds into Viral Gold",
     photo: "https://lh3.googleusercontent.com/d/1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_",
     stats: "10+ Global Clients Served",
     demoOffer: "No idea? No problem. I’ll edit 1 short video for you absolutely free. Upload it, see the results, then we talk.",
@@ -58,8 +58,16 @@ export const CONFIG = {
     "Strategic B-Roll Layering",
     "Sound Design & SFX"
   ],
-  styleImage: "https://img.youtube.com/vi/_IjuBzBx6lo/maxresdefault.jpg",
-  styleVideoUrl: "https://www.youtube.com/embed/_IjuBzBx6lo",
+  styleVideos: [
+    {
+      image: "https://img.youtube.com/vi/_IjuBzBx6lo/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/_IjuBzBx6lo"
+    },
+    {
+      image: "https://img.youtube.com/vi/e4OHe92oXcg/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/e4OHe92oXcg"
+    }
+  ],
   transformation: {
     title: "Raw To Viral",
     description: "This is what retention engineering looks like.",
@@ -69,6 +77,30 @@ export const CONFIG = {
     editedVideoUrl: "https://www.youtube.com/embed/8vwb7EjYWd0",
   },
   portfolio: [
+    {
+      id: 7,
+      title: "Virat Kohli",
+      tag: "Sports Edit",
+      proof: "High Energy",
+      thumbnail: "https://img.youtube.com/vi/e4OHe92oXcg/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/e4OHe92oXcg"
+    },
+    {
+      id: 8,
+      title: "Draft New",
+      tag: "Creative Cut",
+      proof: "Visual FX",
+      thumbnail: "https://img.youtube.com/vi/awNOEaoIQ_I/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/awNOEaoIQ_I"
+    },
+    {
+      id: 9,
+      title: "Draft",
+      tag: "Rough Cut",
+      proof: "Raw Energy",
+      thumbnail: "https://img.youtube.com/vi/dJHBvcQf66s/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/dJHBvcQf66s"
+    },
     { 
       id: 1, 
       title: "Business Niche", 
@@ -116,6 +148,16 @@ export const CONFIG = {
       proof: "Premium Aesthetic",
       thumbnail: "https://img.youtube.com/vi/NmCjEEz7xaI/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/embed/NmCjEEz7xaI" 
+    }
+  ],
+  longForm: [
+    {
+      id: 1,
+      title: "YT Work Green Screen",
+      tag: "Long Form",
+      proof: "Storytelling",
+      thumbnail: "https://img.youtube.com/vi/ctEPoqPpI6A/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/ctEPoqPpI6A"
     }
   ],
   cinematography: [

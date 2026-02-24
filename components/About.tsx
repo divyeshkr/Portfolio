@@ -52,7 +52,7 @@ const About: React.FC = () => {
                         Video editing isn't just about cutting clips; it's about psychology. It's about knowing exactly when the viewer gets bored and hitting them with a dopamine spike before they scroll away.
                     </p>
                     <p className="text-[#EDEDED]/60 text-lg leading-relaxed mb-8">
-                        I specialize in Wondershare Filmora to craft high-energy, kinetic short-form content that dominates algorithms. My philosophy is simple: <span className="text-white font-bold">If they stop watching, we failed.</span>
+                        I specialize in crafting high-energy, kinetic short-form content that dominates algorithms. My philosophy is simple: <span className="text-white font-bold">If they stop watching, we failed.</span>
                     </p>
                     
                     <div className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -63,10 +63,6 @@ const About: React.FC = () => {
                         <div className="px-6 py-3 bg-[#1A1A1A] border border-[#FF2C2C]/30 rounded-lg">
                             <span className="block text-2xl font-black text-[#EDEDED]">24h</span>
                             <span className="text-[10px] uppercase tracking-widest text-[#FF5F1F]">Turnaround</span>
-                        </div>
-                         <div className="px-6 py-3 bg-[#1A1A1A] border border-[#FF2C2C]/30 rounded-lg">
-                            <span className="block text-2xl font-black text-[#EDEDED]">∞</span>
-                            <span className="text-[10px] uppercase tracking-widest text-[#FF5F1F]">Revisions</span>
                         </div>
                     </div>
                 </div>

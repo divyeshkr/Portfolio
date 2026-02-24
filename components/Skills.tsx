@@ -11,26 +11,18 @@ const Skills: React.FC = () => {
     return `${url}${separator}autoplay=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3`;
   };
 
-  const openVideo = () => {
-    if (CONFIG.styleVideoUrl && CONFIG.styleVideoUrl !== '#') {
-      setIsPlaying(false);
-      setSelectedVideo({ 
-        url: getEmbedUrl(CONFIG.styleVideoUrl),
-        thumbnail: CONFIG.styleImage
-      });
-    }
-  };
-
   const closeModal = () => {
     setSelectedVideo(null);
     setIsPlaying(false);
   };
 
   return (
-    <section id="style" className="py-12 md:py-24 px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30 scroll-mt-32">
+    <section id="style" className="py-12 md:py-24 px-4 md:px-6 bg-[#0E0E0E] overflow-hidden border-t border-[#4A0404]/30 scroll-mt-32">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 md:gap-16">
-          <div className="w-full lg:w-3/5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 items-center">
+          
+          {/* Text Content - Middle on Desktop, Top on Mobile */}
+          <div className="col-span-2 order-1 lg:order-2 lg:col-span-2 text-center lg:text-left">
             <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-6 md:mb-8 reveal opacity-0 translate-y-10 transition-all duration-700">
               The <span className="text-[#FF2C2C]">Signature</span> <span className="text-[#FF5F1F]">Style</span>
             </h2>
@@ -52,30 +44,66 @@ const Skills: React.FC = () => {
             </div>
           </div>
           
-          <div className="w-full lg:w-2/5 flex justify-center relative reveal opacity-0 translate-y-10 transition-all duration-700 delay-400">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#4A0404]/10 blur-[100px] rounded-full" />
-            
-            <div 
-              onClick={openVideo}
-              className="relative w-full max-w-[260px] md:max-w-[320px] aspect-[9/16] bg-black rounded-[2rem] md:rounded-[2.5rem] border-[4px] md:border-[8px] border-[#1F1F1F] shadow-[0_40px_80px_rgba(74,4,4,0.4)] overflow-hidden group cursor-pointer hover:border-[#FF5F1F]/40 transition-all"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-28 h-5 md:h-7 bg-[#1F1F1F] rounded-b-2xl z-20" />
-              
-              <img 
-                src={selectedVideo ? selectedVideo.thumbnail : CONFIG.styleImage} 
-                alt="Style Showcase" 
-                className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(255,44,44,0.6)] group-hover:scale-110 transition-transform animate-cta-pulse">
-                  <svg className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+          {/* Video 1 - Left on Desktop, Bottom Left on Mobile */}
+          {CONFIG.styleVideos && CONFIG.styleVideos[0] && (
+            <div className="col-span-1 order-2 lg:order-1 lg:col-span-1 flex justify-center relative reveal opacity-0 translate-y-10 transition-all duration-700 delay-400">
+               <div 
+                onClick={() => {
+                  setIsPlaying(false);
+                  setSelectedVideo({ 
+                    url: getEmbedUrl(CONFIG.styleVideos[0].videoUrl),
+                    thumbnail: CONFIG.styleVideos[0].image
+                  });
+                }}
+                className="relative w-full aspect-[9/16] bg-black rounded-[1.5rem] md:rounded-[2rem] border-[3px] md:border-[6px] border-[#1F1F1F] shadow-[0_20px_40px_rgba(74,4,4,0.4)] overflow-hidden group cursor-pointer hover:border-[#FF5F1F]/40 transition-all"
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 md:w-24 h-4 md:h-6 bg-[#1F1F1F] rounded-b-xl z-20" />
+                <img 
+                  src={CONFIG.styleVideos[0].image} 
+                  alt="Style Showcase 1" 
+                  className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)] group-hover:scale-110 transition-transform animate-cta-pulse">
+                    <svg className="w-5 h-5 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
+
+          {/* Video 2 - Right on Desktop, Bottom Right on Mobile */}
+          {CONFIG.styleVideos && CONFIG.styleVideos[1] && (
+            <div className="col-span-1 order-3 lg:order-3 lg:col-span-1 flex justify-center relative reveal opacity-0 translate-y-10 transition-all duration-700 delay-500">
+               <div 
+                onClick={() => {
+                  setIsPlaying(false);
+                  setSelectedVideo({ 
+                    url: getEmbedUrl(CONFIG.styleVideos[1].videoUrl),
+                    thumbnail: CONFIG.styleVideos[1].image
+                  });
+                }}
+                className="relative w-full aspect-[9/16] bg-black rounded-[1.5rem] md:rounded-[2rem] border-[3px] md:border-[6px] border-[#1F1F1F] shadow-[0_20px_40px_rgba(74,4,4,0.4)] overflow-hidden group cursor-pointer hover:border-[#FF5F1F]/40 transition-all"
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 md:w-24 h-4 md:h-6 bg-[#1F1F1F] rounded-b-xl z-20" />
+                <img 
+                  src={CONFIG.styleVideos[1].image} 
+                  alt="Style Showcase 2" 
+                  className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-center justify-center">
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br from-[#FF2C2C] to-[#FF5F1F] rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,44,44,0.6)] group-hover:scale-110 transition-transform animate-cta-pulse">
+                    <svg className="w-5 h-5 md:w-8 md:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
       </div>
 
