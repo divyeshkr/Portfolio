@@ -26,7 +26,7 @@ const App: React.FC = () => {
   }, [pathname, hash]);
 
   return (
-    <div className="min-h-screen bg-[#121212] selection:bg-[#FF2C2C] selection:text-white overflow-x-hidden relative max-w-[1600px] mx-auto shadow-2xl">
+    <div className="min-h-screen bg-[#121212] selection:bg-[#FF2C2C] selection:text-white overflow-x-hidden relative max-w-[1280px] mx-auto shadow-2xl">
       {/* Global Depth Glow - Optimized for Mobile */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#4A0404]/10 to-transparent"></div>
