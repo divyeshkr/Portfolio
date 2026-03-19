@@ -10,7 +10,8 @@ const FeaturedWork: React.FC = () => {
   // Get specific items: 3 random edits for laptop view (smaller), 1 cinematography, 1 random thumbnail
   // Use state to hold the randomized items so they don't change on re-renders
   const [randomizedContent] = useState(() => {
-    const shuffledEdits = [...CONFIG.portfolio].sort(() => 0.5 - Math.random()).slice(0, 3);
+    const filteredPortfolio = CONFIG.portfolio.filter(item => item.tag !== 'Dhruv Rathee Style');
+    const shuffledEdits = [...filteredPortfolio].sort(() => 0.5 - Math.random()).slice(0, 3);
     const shuffledThumbnails = [...CONFIG.thumbnails.examples].sort(() => 0.5 - Math.random());
     return {
       edits: shuffledEdits,
@@ -19,6 +20,7 @@ const FeaturedWork: React.FC = () => {
   });
 
   const edits = randomizedContent.edits;
+  const featuredLongForm = CONFIG.longForm?.[0];
   const cinema = CONFIG.cinematography?.[0];
   const thumbnail = randomizedContent.thumbnail;
 
@@ -155,27 +157,30 @@ const FeaturedWork: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
+          {/* Global Close Button */}
+          <button 
+            onClick={closeModals}
+            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
+            aria-label="Close modal"
+          >
+            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
           <div 
             className={`relative bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 
                 ${selectedVideo.isVertical 
-                    ? 'w-[min(85vw,calc(80svh*9/16))] aspect-[9/16]' 
-                    : 'w-[min(85vw,calc(80svh*16/9))] aspect-video'
+                    ? 'w-[min(90vw,calc(85svh*9/16))] aspect-[9/16]' 
+                    : 'w-[min(90vw,calc(85svh*16/9))] aspect-video'
                 }`} 
             onClick={(e) => e.stopPropagation()}
           >
              {/* Header Overlay */}
              <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
                   {selectedVideo.title}
                 </span>
-                <button 
-                  onClick={closeModals}
-                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
             </div>
             {!isPlaying ? (
               <div className="w-full h-full group cursor-pointer relative" onClick={() => setIsPlaying(true)}>
@@ -199,19 +204,21 @@ const FeaturedWork: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          <div className="relative max-w-[85vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
+          {/* Global Close Button */}
+          <button 
+            onClick={closeModals}
+            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
+          >
+            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div className="relative max-w-[90vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
              <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
                   {selectedImage.title}
                 </span>
-                <button 
-                  onClick={closeModals}
-                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
             </div>
             
             <img 

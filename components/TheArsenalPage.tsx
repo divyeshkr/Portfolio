@@ -110,6 +110,57 @@ const TheArsenalPage: React.FC = () => {
             {/* Content Grid */}
             <div className="space-y-24">
                 
+                {/* Long Form Section */}
+                {(activeTab === 'all' || activeTab === 'longform') && CONFIG.longForm && CONFIG.longForm.length > 0 && (
+                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        {activeTab === 'all' && (
+                            <h3 className="text-2xl font-black text-[#EDEDED] uppercase mb-8 border-l-4 border-[#FF2C2C] pl-4">
+                                Long Form Mastery
+                            </h3>
+                        )}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {CONFIG.longForm.map((item, index) => (
+                                <div 
+                                    key={item.id} 
+                                    onClick={() => openVideo(item, false)}
+                                    className={`group relative aspect-video bg-[#1A1A1A] border rounded-xl overflow-hidden transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10 ${item.tag === 'Dhruv Rathee Style' ? 'border-yellow-400/50 hover:border-yellow-400' : 'border-[#4A0404]/30 hover:border-[#FF5F1F]/50'}`}
+                                    style={{ transitionDelay: `${index * 50}ms` }}
+                                >
+                                    <img 
+                                        src={item.thumbnail} 
+                                        alt={item.title} 
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <span className={`text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] ${item.tag === 'Dhruv Rathee Style' ? 'text-yellow-400' : 'text-[#FF5F1F]'}`}>
+                                                {item.tag}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-lg md:text-xl font-black uppercase tracking-tight leading-none mb-1 text-white">{item.title}</h3>
+                                    </div>
+                                    {/* Play Icon */}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
+                                        <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg ${item.tag === 'Dhruv Rathee Style' ? 'bg-yellow-400 text-black' : 'bg-[#FF5F1F] text-white'}`}>
+                                            <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        {activeTab === 'all' && (
+                            <div className="mt-8 text-center">
+                                <button 
+                                    onClick={() => switchToTab('longform')}
+                                    className="text-[#FF5F1F] font-black uppercase tracking-widest text-xs border-b border-[#FF5F1F] pb-1 hover:text-white hover:border-white transition-all hover:pb-2"
+                                >
+                                    See More Long Form
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 {/* Short Form Videos Section (Edits) */}
                 {(activeTab === 'all' || activeTab === 'edits') && (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -120,6 +171,7 @@ const TheArsenalPage: React.FC = () => {
                         )}
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                             {CONFIG.portfolio
+                                .filter(item => item.tag !== 'Dhruv Rathee Style')
                                 .slice(0, activeTab === 'all' ? 4 : undefined)
                                 .map((item, index) => (
                                 <div 
@@ -156,57 +208,6 @@ const TheArsenalPage: React.FC = () => {
                                     className="text-[#FF5F1F] font-black uppercase tracking-widest text-xs border-b border-[#FF5F1F] pb-1 hover:text-white hover:border-white transition-all hover:pb-2"
                                 >
                                     See More Edits
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                )}
-
-                {/* Long Form Section */}
-                {(activeTab === 'all' || activeTab === 'longform') && CONFIG.longForm && CONFIG.longForm.length > 0 && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        {activeTab === 'all' && (
-                            <h3 className="text-2xl font-black text-[#EDEDED] uppercase mb-8 border-l-4 border-[#FF2C2C] pl-4">
-                                Long Form
-                            </h3>
-                        )}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {CONFIG.longForm.map((item, index) => (
-                                <div 
-                                    key={item.id} 
-                                    onClick={() => openVideo(item, false)}
-                                    className="group relative aspect-video bg-[#1A1A1A] border border-[#4A0404]/30 rounded-xl overflow-hidden hover:border-[#FF5F1F]/50 transition-all duration-300 cursor-pointer shadow-xl reveal opacity-0 translate-y-10"
-                                    style={{ transitionDelay: `${index * 50}ms` }}
-                                >
-                                    <img 
-                                        src={item.thumbnail} 
-                                        alt={item.title} 
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-4 flex flex-col justify-end">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#FF5F1F]">
-                                                {item.tag}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-lg md:text-xl font-black uppercase tracking-tight leading-none mb-1 text-white">{item.title}</h3>
-                                    </div>
-                                    {/* Play Icon */}
-                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100">
-                                        <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-[#FF5F1F] text-white">
-                                            <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        {activeTab === 'all' && (
-                            <div className="mt-8 text-center">
-                                <button 
-                                    onClick={() => switchToTab('longform')}
-                                    className="text-[#FF5F1F] font-black uppercase tracking-widest text-xs border-b border-[#FF5F1F] pb-1 hover:text-white hover:border-white transition-all hover:pb-2"
-                                >
-                                    See More Long Form
                                 </button>
                             </div>
                         )}
@@ -341,29 +342,31 @@ const TheArsenalPage: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
+          {/* Global Close Button - Top Right of Screen */}
+          <button 
+            onClick={closeModals}
+            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
+            aria-label="Close modal"
+          >
+            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
           
           <div 
             className={`relative bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 
                 ${selectedVideo.isVertical 
-                    ? 'w-[min(85vw,calc(80svh*9/16))] aspect-[9/16]' 
-                    : 'w-[min(85vw,calc(80svh*16/9))] aspect-video'
+                    ? 'w-[min(90vw,calc(85svh*9/16))] aspect-[9/16]' 
+                    : 'w-[min(90vw,calc(85svh*16/9))] aspect-video'
                 }`}
             onClick={(e) => e.stopPropagation()}
           >
             
             {/* Header Overlay */}
             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
                   {selectedVideo.title}
                 </span>
-                <button 
-                  onClick={closeModals}
-                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
             </div>
 
             {!isPlaying ? (
@@ -388,20 +391,22 @@ const TheArsenalPage: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          <div className="relative max-w-[85vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
+          {/* Global Close Button */}
+          <button 
+            onClick={closeModals}
+            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
+          >
+            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div className="relative max-w-[90vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
              {/* Header Overlay */}
              <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
                   {selectedImage.title}
                 </span>
-                <button 
-                  onClick={closeModals}
-                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
             </div>
             
             <img 

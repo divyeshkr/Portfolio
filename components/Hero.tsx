@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
         </h1>
         
         <p className="text-base md:text-2xl font-bold text-[#EDEDED]/60 mt-6 md:mt-6 max-w-3xl mx-auto reveal opacity-0 translate-y-10 transition-all duration-700 delay-500">
-          Visual Storytelling Expert | Turning <span className="text-[#FF2C2C]">120 Seconds</span> into <span className="text-[#FF5F1F]">Viral Gold</span>
+          Visual Storytelling Expert | Proper <span className="text-[#FF2C2C]">Dhruv Rathee</span> & <span className="text-[#FF5F1F]">Mohak Mangal</span> Style Videos
         </p>
 
         {/* Stats Counter Bar - Multi-accent coloring */}

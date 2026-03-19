@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
               The <span className="text-[#FF2C2C]">Signature</span> <span className="text-[#FF5F1F]">Style</span>
             </h2>
             <p className="text-[#EDEDED]/60 text-base md:text-xl leading-relaxed mb-8 md:mb-10 reveal opacity-0 translate-y-10 transition-all duration-700 delay-100 font-medium">
-              I specialize in <span className="text-white font-bold">Talking Head Mastery</span>. I turn experts into influencers by engineering aggressive hooks, kinetic typography, and high-energy B-roll that maintains 60%+ retention across the board.
+              I specialize in <span className="text-white font-bold">Visual Storytelling</span>. From high-retention shorts to complex <span className="text-white font-bold">Dhruv Rathee style</span> long-form documentaries. I handle proper green screen, audio effects, cinematic transitions, and deep research-based editing.
             </p>
             
             <div className="grid grid-cols-2 gap-3 md:gap-6 reveal opacity-0 translate-y-10 transition-all duration-700 delay-200">

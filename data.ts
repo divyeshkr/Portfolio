@@ -4,8 +4,8 @@ export const CONFIG = {
   profile: {
     name: "Divyesh Creates",
     email: "divyesh.yts@gmail.com",
-    role: "Short-Form Video Specialist",
-    tagline: "Visual Storytelling Expert | Turning 120 Seconds into Viral Gold",
+    role: "Visual Storytelling Expert",
+    tagline: "Visual Storytelling Expert | Proper Dhruv Rathee, Mohak Mangal Style Videos",
     photo: "https://lh3.googleusercontent.com/d/1rDHto2fVUaUXXl5qr-RTaRwh1VSOTWk_",
     stats: "10+ Global Clients Served",
     demoOffer: "No idea? No problem. I’ll edit 1 short video for you absolutely free. Upload it, see the results, then we talk.",
@@ -77,6 +77,14 @@ export const CONFIG = {
     editedVideoUrl: "https://www.youtube.com/embed/8vwb7EjYWd0",
   },
   portfolio: [
+    {
+      id: 10,
+      title: "Dhruv Rathee Style Draft",
+      tag: "Dhruv Rathee Style",
+      proof: "Documentary Style",
+      thumbnail: "https://img.youtube.com/vi/yfnQa_Dh-VY/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/yfnQa_Dh-VY"
+    },
     {
       id: 7,
       title: "Virat Kohli",
@@ -151,6 +159,14 @@ export const CONFIG = {
     }
   ],
   longForm: [
+    {
+      id: 2,
+      title: "Dhruv Rathee Style Draft",
+      tag: "Dhruv Rathee Style",
+      proof: "Documentary Style",
+      thumbnail: "https://img.youtube.com/vi/yfnQa_Dh-VY/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/embed/yfnQa_Dh-VY"
+    },
     {
       id: 1,
       title: "YT Work Green Screen",

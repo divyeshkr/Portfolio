@@ -46,13 +46,13 @@ const About: React.FC = () => {
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF2C2C] to-[#FF5F1F] pr-4">An Editor</span>
                     </h1>
                     <h2 className="text-xl md:text-2xl font-bold text-[#EDEDED] mb-6">
-                        I am a <span className="text-[#FF2C2C]">Retention Engineer</span>.
+                        I am a <span className="text-[#FF2C2C]">Visual Storytelling Expert</span> & <span className="text-[#FF5F1F]">Retention Engineer</span>.
                     </h2>
                     <p className="text-[#EDEDED]/60 text-lg leading-relaxed mb-8">
-                        Video editing isn't just about cutting clips; it's about psychology. It's about knowing exactly when the viewer gets bored and hitting them with a dopamine spike before they scroll away.
+                        Video editing isn't just about cutting clips; it's about psychology and cinematic impact. I specialize in high-production documentary styles, inspired by creators like <span className="text-white font-bold">Dhruv Rathee</span>, where every frame serves a purpose.
                     </p>
                     <p className="text-[#EDEDED]/60 text-lg leading-relaxed mb-8">
-                        I specialize in crafting high-energy, kinetic short-form content that dominates algorithms. My philosophy is simple: <span className="text-white font-bold">If they stop watching, we failed.</span>
+                        I craft high-energy, kinetic content that dominates algorithms by hitting viewers with dopamine spikes exactly when they need them. My philosophy is simple: <span className="text-white font-bold">If they stop watching, we failed.</span>
                     </p>
                     
                     <div className="flex flex-wrap justify-center lg:justify-start gap-4">

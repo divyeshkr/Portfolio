@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from './Hero';
 import Skills from './Skills';
+import DhruvRatheeHighlight from './DhruvRatheeHighlight';
 import Transformation from './Transformation';
 import FeaturedWork from './FeaturedWork';
 import BookingForm from './BookingForm';
@@ -31,6 +32,7 @@ const Home: React.FC = () => {
     <>
       <Hero />
       <Skills />
+      <DhruvRatheeHighlight />
       {/* BeyondEditing moved to separate page */}
       <Transformation />
       <FeaturedWork />
