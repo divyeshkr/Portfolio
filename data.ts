@@ -126,14 +126,6 @@ export const CONFIG = {
       videoUrl: "https://www.youtube.com/embed/--cH2ZhJB4s" 
     },
     { 
-      id: 3, 
-      title: "Education Content", 
-      tag: "Animated Caps", 
-      proof: "2.4x Watch Time",
-      thumbnail: "https://img.youtube.com/vi/ctEPoqPpI6A/maxresdefault.jpg",
-      videoUrl: "https://www.youtube.com/embed/ctEPoqPpI6A" 
-    },
-    { 
       id: 4, 
       title: "Dynamic Flow", 
       tag: "Engagement Loop", 

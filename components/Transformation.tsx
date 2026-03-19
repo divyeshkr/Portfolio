@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { X } from 'lucide-react';
 import { CONFIG } from '../data';
 
 const Transformation: React.FC = () => {
@@ -104,21 +105,21 @@ const Transformation: React.FC = () => {
           onClick={closeModal}
         >
           <div 
-            className="relative w-[min(90vw,calc(85svh*9/16))] aspect-[9/16] bg-black rounded-2xl overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_50px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 group/player"
+            className="relative w-[min(80vw,400px)] aspect-[9/16] max-h-[80vh] bg-black rounded-2xl overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_50px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 group/player"
             onClick={(e) => e.stopPropagation()}
           >
              {/* Header Overlay */}
-             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[70%]">
+             <div className="absolute top-4 left-4 right-4 z-[100] flex justify-between items-center pointer-events-none">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[60%]">
                   {selectedVideo.title}
                 </span>
+
                 <button 
                   onClick={closeModal}
-                  className="pointer-events-auto p-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-[#FF2C2C] transition-all"
+                  className="pointer-events-auto flex items-center gap-2 px-4 py-2 bg-[#FF2C2C] text-white rounded-full font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-105 transition-all"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X className="w-4 h-4" />
+                  <span>Close</span>
                 </button>
             </div>
 

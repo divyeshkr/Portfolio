@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { X } from 'lucide-react';
 import { CONFIG } from '../data';
 
 const FeaturedWork: React.FC = () => {
@@ -151,23 +152,12 @@ const FeaturedWork: React.FC = () => {
         </div>
       </div>
 
-       {/* Video Modal */}
-       {selectedVideo && (
+        {/* Video Modal */}
+        {selectedVideo && (
         <div 
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          {/* Global Close Button */}
-          <button 
-            onClick={closeModals}
-            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
-            aria-label="Close modal"
-          >
-            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
           <div 
             className={`relative bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 
                 ${selectedVideo.isVertical 
@@ -177,10 +167,18 @@ const FeaturedWork: React.FC = () => {
             onClick={(e) => e.stopPropagation()}
           >
              {/* Header Overlay */}
-             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
+             <div className="absolute top-4 left-4 right-4 z-[100] flex justify-between items-center pointer-events-none">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[60%]">
                   {selectedVideo.title}
                 </span>
+
+                <button 
+                  onClick={closeModals}
+                  className="pointer-events-auto flex items-center gap-2 px-4 py-2 bg-[#FF2C2C] text-white rounded-full font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-105 transition-all"
+                >
+                  <X className="w-4 h-4" />
+                  <span>Close</span>
+                </button>
             </div>
             {!isPlaying ? (
               <div className="w-full h-full group cursor-pointer relative" onClick={() => setIsPlaying(true)}>
@@ -204,21 +202,19 @@ const FeaturedWork: React.FC = () => {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8 animate-in fade-in duration-300"
           onClick={closeModals}
         >
-          {/* Global Close Button */}
-          <button 
-            onClick={closeModals}
-            className="fixed top-6 right-6 z-[10000] p-3 bg-white/10 hover:bg-[#FF2C2C] text-white rounded-full transition-all border border-white/20 shadow-2xl group"
-          >
-            <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
           <div className="relative max-w-[85vw] max-h-[80vh] animate-in zoom-in-95 duration-300">
-             <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
-                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
+             <div className="absolute top-4 left-4 right-4 z-[100] flex justify-between items-center pointer-events-none">
+                <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[60%]">
                   {selectedImage.title}
                 </span>
+
+                <button 
+                  onClick={closeModals}
+                  className="pointer-events-auto flex items-center gap-2 px-4 py-2 bg-[#FF2C2C] text-white rounded-full font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-105 transition-all"
+                >
+                  <X className="w-4 h-4" />
+                  <span>Close</span>
+                </button>
             </div>
             
             <img 
