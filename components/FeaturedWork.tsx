@@ -171,8 +171,8 @@ const FeaturedWork: React.FC = () => {
           <div 
             className={`relative bg-black rounded-lg overflow-hidden border-2 border-[#FF5F1F] shadow-[0_0_60px_rgba(74,4,4,0.4)] animate-in zoom-in-95 duration-300 
                 ${selectedVideo.isVertical 
-                    ? 'w-[min(90vw,calc(85svh*9/16))] aspect-[9/16]' 
-                    : 'w-[min(90vw,calc(85svh*16/9))] aspect-video'
+                    ? 'w-[min(80vw,400px)] aspect-[9/16] max-h-[80vh]' 
+                    : 'w-[min(85vw,800px)] aspect-video max-h-[65vh]'
                 }`} 
             onClick={(e) => e.stopPropagation()}
           >
@@ -214,7 +214,7 @@ const FeaturedWork: React.FC = () => {
             </svg>
           </button>
 
-          <div className="relative max-w-[90vw] max-h-[85vh] animate-in zoom-in-95 duration-300">
+          <div className="relative max-w-[85vw] max-h-[80vh] animate-in zoom-in-95 duration-300">
              <div className="absolute top-4 left-4 right-4 z-50 flex justify-between items-start pointer-events-none">
                 <span className="px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full text-[#FF5F1F] font-black uppercase text-[10px] tracking-widest truncate max-w-[80%]">
                   {selectedImage.title}
